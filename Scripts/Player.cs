@@ -3,11 +3,23 @@ using System;
 
 public partial class Player : CharacterBody2D
 {
+
+    public enum PlayerState
+    {
+        IDLE,
+        WALKING,
+    }
+
+    public PlayerState State { get; private set; } = PlayerState.IDLE;
+
     [Export]
     private float speed;
 
     [Export]
-    private Node2D Weapon;
+    private Weapon Weapon;
+
+    [Export]
+    private AnimationTree animator;
 
     public override void _Process(double delta)
     {
@@ -19,6 +31,15 @@ public partial class Player : CharacterBody2D
             mouse_position.Y - Weapon.GlobalPosition.Y,
             mouse_position.X - Weapon.GlobalPosition.X
         );
+        
+        if (-Mathf.Pi / 2 <= Weapon.Rotation && Weapon.Rotation < Mathf.Pi / 2)
+        {
+            Weapon.FlipV = false;
+        }
+        else
+        {
+            Weapon.FlipV = true;
+        }
     }
 
     public override void _PhysicsProcess(double delta)
@@ -27,8 +48,32 @@ public partial class Player : CharacterBody2D
 
         Vector2 direction = Input.GetVector("left", "right", "up", "down");
 
-        Velocity = direction * speed;
+        if (!direction.IsZeroApprox())
+        {
+            State = PlayerState.WALKING;
+        }
+        else
+        {
+            State = PlayerState.IDLE;
+        }
 
+        if (!Mathf.IsZeroApprox(direction.X))
+        {
+            animator.Set("parameters/Walking/blend_position", direction.X);
+            animator.Set("parameters/Idle/blend_position", direction.X);
+        }
+
+        Velocity = direction * speed;
         MoveAndSlide();
+    }
+
+    public bool IsIdle()
+    {
+        return State == PlayerState.IDLE;
+    }
+
+    public bool IsWalking()
+    {
+        return State == PlayerState.WALKING;
     }
 }

@@ -17,32 +17,32 @@ normal = Vector2(0, 1)
 [node name="BigTileManager" type="Node2D" unique_id=1940092986 node_paths=PackedStringArray("LeftBoundary", "RightBoundary", "TopBoundary", "BottomBoundary")]
 script = ExtResource("1_1s5vo")
 BigTileScene = ExtResource("2_cq53q")
-BoundaryBuffer = 45.0
+BoundaryBuffer = 25.0
 LeftBoundary = NodePath("LeftBoundary")
 RightBoundary = NodePath("RightBoundary")
 TopBoundary = NodePath("TopBoundary")
 BottomBoundary = NodePath("BottomBoundary")
 
 [node name="LeftBoundary" type="Area2D" parent="." unique_id=92888403]
-collision_layer = 8
+collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBoundary" unique_id=1998862710]
 shape = SubResource("WorldBoundaryShape2D_cq53q")
 
 [node name="RightBoundary" type="Area2D" parent="." unique_id=872861506]
-collision_layer = 8
+collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightBoundary" unique_id=1342217000]
 shape = SubResource("WorldBoundaryShape2D_escyx")
 
 [node name="TopBoundary" type="Area2D" parent="." unique_id=979028505]
-collision_layer = 8
+collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopBoundary" unique_id=2146116751]
 shape = SubResource("WorldBoundaryShape2D_hyx3h")
 
 [node name="BottomBoundary" type="Area2D" parent="." unique_id=1089377035]
-collision_layer = 8
+collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomBoundary" unique_id=1884659578]
 shape = SubResource("WorldBoundaryShape2D_o7viy")

@@ -5,7 +5,7 @@
 
 [node name="BigTile" type="Node2D" unique_id=434383150 node_paths=PackedStringArray("GroundLayer")]
 script = ExtResource("1_xjuyt")
-Dimensions = Vector2i(16, 16)
+Dimensions = Vector2i(24, 16)
 GroundLayer = NodePath("Ground")
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=940082632]
