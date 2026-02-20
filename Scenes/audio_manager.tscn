@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ks0kt6wso02g"]
+
+[ext_resource type="Script" uid="uid://bkn02y2yx52b2" path="res://Scripts/AudioManager.cs" id="1_sm2tf"]
+[ext_resource type="AudioStream" uid="uid://c5p2vc1wuk1xq" path="res://Resources/player_shoot.wav" id="2_4tj6f"]
+
+[node name="AudioManager" type="Node" unique_id=206333255]
+script = ExtResource("1_sm2tf")
+streams = 8
+sfx_list = Dictionary[StringName, AudioStream]({
+&"player_shoot": ExtResource("2_4tj6f")
+})

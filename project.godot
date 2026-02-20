@@ -14,6 +14,10 @@ config/name="RespawnSpring2026"
 config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+AudioManager="*uid://ks0kt6wso02g"
+
 [display]
 
 window/size/viewport_width=640
