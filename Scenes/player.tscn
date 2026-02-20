@@ -2,13 +2,14 @@
 
 [ext_resource type="Script" uid="uid://qq2s8n5rw581" path="res://Scripts/Player.cs" id="1_v0iea"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_f60y1"]
+[sub_resource type="QuadMesh" id="QuadMesh_cvnsp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f60y1"]
-radius = 19.0
-height = 66.0
+radius = 36.0
+height = 72.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_v0iea"]
+size = Vector2(42, 12)
 
 [node name="Player" type="CharacterBody2D" unique_id=354397576 node_paths=PackedStringArray("Weapon")]
 motion_mode = 1
@@ -17,9 +18,9 @@ speed = 300.0
 Weapon = NodePath("Weapon")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=2073633444]
-position = Vector2(0, 2.9802327e-06)
-scale = Vector2(38, 33)
-mesh = SubResource("CapsuleMesh_f60y1")
+position = Vector2(0, 4.947186e-06)
+scale = Vector2(72, 70.00001)
+mesh = SubResource("QuadMesh_cvnsp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=927529883]
 shape = SubResource("CapsuleShape2D_f60y1")
@@ -28,5 +29,4 @@ shape = SubResource("CapsuleShape2D_f60y1")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Weapon" unique_id=487540051]
 modulate = Color(0, 0, 0, 1)
-scale = Vector2(42, 12)
 mesh = SubResource("QuadMesh_v0iea")

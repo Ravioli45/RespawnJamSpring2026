@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bg47usqr7is0n"]
+
+[ext_resource type="Script" uid="uid://cpx04faecqxbg" path="res://Scripts/BigTileManager.cs" id="1_1s5vo"]
+[ext_resource type="PackedScene" uid="uid://iykwxv8ylq7v" path="res://Scenes/big_tile.tscn" id="2_cq53q"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cq53q"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_escyx"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hyx3h"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o7viy"]
+
+[node name="BigTileManager" type="Node2D" unique_id=1940092986 node_paths=PackedStringArray("LeftBoundary", "RightBoundary", "TopBoundary", "BottomBoundary")]
+script = ExtResource("1_1s5vo")
+BigTileScene = ExtResource("2_cq53q")
+BoundaryBuffer = 45.0
+LeftBoundary = NodePath("LeftBoundary")
+RightBoundary = NodePath("RightBoundary")
+TopBoundary = NodePath("TopBoundary")
+BottomBoundary = NodePath("BottomBoundary")
+
+[node name="LeftBoundary" type="Area2D" parent="." unique_id=92888403]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBoundary" unique_id=1998862710]
+shape = SubResource("WorldBoundaryShape2D_cq53q")
+
+[node name="RightBoundary" type="Area2D" parent="." unique_id=872861506]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBoundary" unique_id=1342217000]
+shape = SubResource("WorldBoundaryShape2D_escyx")
+
+[node name="TopBoundary" type="Area2D" parent="." unique_id=979028505]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopBoundary" unique_id=2146116751]
+shape = SubResource("WorldBoundaryShape2D_hyx3h")
+
+[node name="BottomBoundary" type="Area2D" parent="." unique_id=1089377035]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomBoundary" unique_id=1884659578]
+shape = SubResource("WorldBoundaryShape2D_o7viy")
+
+[connection signal="body_entered" from="LeftBoundary" to="." method="OnCrossLeft"]
+[connection signal="body_entered" from="RightBoundary" to="." method="OnCrossRight"]
+[connection signal="body_entered" from="TopBoundary" to="." method="OnCrossTop"]
+[connection signal="body_entered" from="BottomBoundary" to="." method="OnCrossBottom"]

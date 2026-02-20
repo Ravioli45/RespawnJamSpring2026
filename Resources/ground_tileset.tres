@@ -1,0 +1,23 @@
+[gd_resource type="TileSet" format=3 uid="uid://bj13g5cuh12g5"]
+
+[ext_resource type="Texture2D" uid="uid://cx6fobl5c1471" path="res://Sprites/Tiles/pixel_moon_best.png" id="1_xlsda"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wpctw"]
+resource_name = "MoonGround"
+texture = ExtResource("1_xlsda")
+3:0/0 = 0
+4:0/0 = 0
+1:1/0 = 0
+1:2/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+1:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+
+[resource]
+sources/1 = SubResource("TileSetAtlasSource_wpctw")

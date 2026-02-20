@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://iykwxv8ylq7v"]
+
+[ext_resource type="Script" uid="uid://dm8yn6w631q3e" path="res://Scripts/BigTile.cs" id="1_xjuyt"]
+[ext_resource type="TileSet" uid="uid://bj13g5cuh12g5" path="res://Resources/ground_tileset.tres" id="2_0njnb"]
+
+[node name="BigTile" type="Node2D" unique_id=434383150 node_paths=PackedStringArray("GroundLayer")]
+script = ExtResource("1_xjuyt")
+Dimensions = Vector2i(16, 16)
+GroundLayer = NodePath("Ground")
+
+[node name="Ground" type="TileMapLayer" parent="." unique_id=940082632]
+z_index = -1
+tile_set = ExtResource("2_0njnb")
