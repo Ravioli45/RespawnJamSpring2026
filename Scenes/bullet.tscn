@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cylqwqoo1bcf"]
+
+[ext_resource type="Script" uid="uid://c1s5yu78tlloy" path="res://Scripts/Bullet.cs" id="1_oduel"]
+[ext_resource type="Texture2D" uid="uid://y2m81q6u8lky" path="res://Sprites/Player/laserbeam.png" id="1_xjght"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oduel"]
+size = Vector2(16, 1)
+
+[node name="Bullet" type="CharacterBody2D" unique_id=1247754810]
+collision_layer = 4
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_oduel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=190535190]
+position = Vector2(4, 1)
+shape = SubResource("RectangleShape2D_oduel")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2018913006]
+position = Vector2(4, 0)
+texture = ExtResource("1_xjght")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=626405574]
+rect = Rect2(-12, -8, 32, 17)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="OnScreenExit"]

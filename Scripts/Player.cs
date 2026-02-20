@@ -48,6 +48,11 @@ public partial class Player : CharacterBody2D
 
         Vector2 direction = Input.GetVector("left", "right", "up", "down");
 
+        if (Input.IsActionJustPressed("shoot"))
+        {
+            Weapon.Shoot(Velocity);
+        }
+
         if (!direction.IsZeroApprox())
         {
             State = PlayerState.WALKING;
