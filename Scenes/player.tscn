@@ -214,12 +214,14 @@ states/Walking/node = SubResource("AnimationNodeBlendSpace1D_vgqql")
 states/Walking/position = Vector2(539.6, 99.776)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_fkybt"), "Idle", "Walking", SubResource("AnimationNodeStateMachineTransition_cvnsp"), "Walking", "Idle", SubResource("AnimationNodeStateMachineTransition_6t5aa")]
 
-[node name="Player" type="CharacterBody2D" unique_id=354397576 node_paths=PackedStringArray("Weapon", "animator")]
+[node name="Player" type="CharacterBody2D" unique_id=354397576 node_paths=PackedStringArray("Weapon", "animator", "FirerateTimer")]
 motion_mode = 1
 script = ExtResource("1_v0iea")
-speed = 250.0
+baseSpeed = 250.0
+baseFireRate = 1.0
 Weapon = NodePath("Weapon")
 animator = NodePath("AnimationTree")
+FirerateTimer = NodePath("FirerateTimer")
 
 [node name="PlayerSprite" type="Sprite2D" parent="." unique_id=2127251949]
 texture = ExtResource("2_cvnsp")
@@ -253,3 +255,8 @@ texture = ExtResource("3_6t5aa")
 
 [node name="BulletSpawnPoint" type="Node2D" parent="Weapon" unique_id=166643720]
 position = Vector2(20, 0)
+
+[node name="FirerateTimer" type="Timer" parent="." unique_id=110461853]
+one_shot = true
+
+[connection signal="timeout" from="FirerateTimer" to="." method="OnFirerateTimerEnd"]

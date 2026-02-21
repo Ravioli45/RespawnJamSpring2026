@@ -11,15 +11,21 @@ public partial class Player : CharacterBody2D
     }
 
     public PlayerState State { get; private set; } = PlayerState.IDLE;
+    private bool canShoot = true;
 
     [Export]
-    private float speed;
+    private float baseSpeed;
+    [Export]
+    private float baseFireRate;
 
     [Export]
     private Weapon Weapon;
 
     [Export]
     private AnimationTree animator;
+
+    [Export]
+    private Timer FirerateTimer;
 
     public override void _Ready()
     {
@@ -55,9 +61,11 @@ public partial class Player : CharacterBody2D
 
         Vector2 direction = Input.GetVector("left", "right", "up", "down");
 
-        if (Input.IsActionJustPressed("shoot"))
+        if (Input.IsActionPressed("shoot") && canShoot)
         {
             Weapon.Shoot(Velocity);
+            FirerateTimer.Start(baseFireRate / GameMaster.Instance.CurrentBuffs.FireRateMultiplier);
+            canShoot = false;
         }
 
         if (!direction.IsZeroApprox())
@@ -75,8 +83,13 @@ public partial class Player : CharacterBody2D
             animator.Set("parameters/Idle/blend_position", direction.X);
         }
 
-        Velocity = direction * speed;
+        Velocity = direction * baseSpeed * GameMaster.Instance.CurrentBuffs.MoveSpeedMultiplier;
         MoveAndSlide();
+    }
+
+    public void OnFirerateTimerEnd()
+    {
+        canShoot = true;
     }
 
     public bool IsIdle()

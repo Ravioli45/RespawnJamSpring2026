@@ -7,6 +7,10 @@ public partial class GameMaster : Node
 
     public Player PlayerRef { get; set; }
 
+    [Export]
+    public BuffableStats CurrentBuffs { get; set; }
+    private BuffableStats InitialStats { get; set; }
+
     public Vector2 PlayerPosition
     {
         get => PlayerRef.GlobalPosition;
@@ -23,6 +27,7 @@ public partial class GameMaster : Node
         }
 
         Instance ??= this;
+        InitialStats = CurrentBuffs.Duplicate() as BuffableStats;
         GD.Print("GameMaster loaded");
     }
 }

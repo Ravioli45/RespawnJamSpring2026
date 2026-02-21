@@ -1,6 +1,17 @@
 [gd_scene format=3 uid="uid://46524svigvom"]
 
 [ext_resource type="Script" uid="uid://2laeyjyprffw" path="res://Scripts/GameMaster.cs" id="1_ldihj"]
+[ext_resource type="Script" uid="uid://cs3x5s1tp052p" path="res://Scripts/BuffableStats.cs" id="2_1fa2w"]
+
+[sub_resource type="Resource" id="Resource_djvcl"]
+script = ExtResource("2_1fa2w")
+FireRateMultiplier = 1.0
+ProjectileDamageMultiplier = 1.0
+ExplosionRadiusMultiplier = 1.0
+ExplosionDamageMultiplier = 1.0
+MoveSpeedMultiplier = 1.0
+metadata/_custom_type_script = "uid://cs3x5s1tp052p"
 
 [node name="GameMaster" type="Node" unique_id=2051350524]
 script = ExtResource("1_ldihj")
+CurrentBuffs = SubResource("Resource_djvcl")
