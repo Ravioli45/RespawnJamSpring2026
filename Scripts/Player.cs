@@ -21,6 +21,13 @@ public partial class Player : CharacterBody2D
     [Export]
     private AnimationTree animator;
 
+    public override void _Ready()
+    {
+        base._Ready();
+
+        GameMaster.Instance.PlayerRef = this;
+    }
+
     public override void _Process(double delta)
     {
         base._Process(delta);
@@ -31,7 +38,7 @@ public partial class Player : CharacterBody2D
             mouse_position.Y - Weapon.GlobalPosition.Y,
             mouse_position.X - Weapon.GlobalPosition.X
         );
-        
+
         if (-Mathf.Pi / 2 <= Weapon.Rotation && Weapon.Rotation < Mathf.Pi / 2)
         {
             Weapon.FlipV = false;

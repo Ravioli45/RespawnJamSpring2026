@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b0r7ihrgbkb6s"]
+
+[ext_resource type="PackedScene" uid="uid://bg47usqr7is0n" path="res://Scenes/big_tile_manager.tscn" id="1_k5f4k"]
+[ext_resource type="PackedScene" uid="uid://dkq72cf1qc44c" path="res://Scenes/player.tscn" id="2_6phgx"]
+[ext_resource type="PackedScene" uid="uid://dnmu7jq27mqst" path="res://Scenes/follow_camera.tscn" id="4_81xng"]
+
+[node name="GameMaster" type="Node2D" unique_id=197642299]
+
+[node name="BigTileManager" parent="." unique_id=1940092986 instance=ExtResource("1_k5f4k")]
+
+[node name="Player" parent="." unique_id=354397576 instance=ExtResource("2_6phgx")]
+position = Vector2(39, 33)
+
+[node name="FollowCamera" parent="." unique_id=1389545954 node_paths=PackedStringArray("Target") instance=ExtResource("4_81xng")]
+Target = NodePath("../Player")
+Following = true
