@@ -45,7 +45,7 @@ public partial class Enemy : CharacterBody2D
 				State = EnemyState.WALKING;
 			}
 			ShootLag--;
-			
+			MoveAtPlayer();
 			MoveAndSlide();
 		}else{
 			MoveAtPlayer();
