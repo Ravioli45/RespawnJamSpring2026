@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BuffItemInfo" format=3 uid="uid://drac6kqhnjx8t"]
+
+[ext_resource type="Texture2D" uid="uid://bs0bjs0dvonpb" path="res://Sprites/SDCards/Blaster_Pew-Pew.png" id="1_fy7yh"]
+[ext_resource type="Script" uid="uid://cp17lsy7ql8y4" path="res://Scripts/BuffItemInfo.cs" id="1_gqghd"]
+[ext_resource type="Script" uid="uid://cs3x5s1tp052p" path="res://Scripts/BuffableStats.cs" id="2_pwenx"]
+
+[sub_resource type="Resource" id="Resource_ckcp4"]
+script = ExtResource("2_pwenx")
+FireRateMultiplier = 0.1
+metadata/_custom_type_script = "uid://cs3x5s1tp052p"
+
+[resource]
+script = ExtResource("1_gqghd")
+StatChanges = SubResource("Resource_ckcp4")
+BuffTypeTexture = ExtResource("1_fy7yh")
+ItemName = "Fired Up"
+Description = "Increases projectile fire rate by 10%. (+10% per stack)"
+metadata/_custom_type_script = "uid://cp17lsy7ql8y4"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BuffItemInfo" format=3 uid="uid://b32p4h3q5l46u"]
+
+[ext_resource type="Script" uid="uid://cp17lsy7ql8y4" path="res://Scripts/BuffItemInfo.cs" id="1_4bqxn"]
+[ext_resource type="Texture2D" uid="uid://bs0bjs0dvonpb" path="res://Sprites/SDCards/Blaster_Pew-Pew.png" id="1_cnn7j"]
+[ext_resource type="Script" uid="uid://cs3x5s1tp052p" path="res://Scripts/BuffableStats.cs" id="2_p7xjr"]
+
+[sub_resource type="Resource" id="Resource_j4ohq"]
+script = ExtResource("2_p7xjr")
+ProjectileDamageMultiplier = 0.1
+metadata/_custom_type_script = "uid://cs3x5s1tp052p"
+
+[resource]
+script = ExtResource("1_4bqxn")
+StatChanges = SubResource("Resource_j4ohq")
+BuffTypeTexture = ExtResource("1_cnn7j")
+ItemName = "Amplifier"
+Description = "Increases projectile damage by 10%. (+10% per stack)"
+metadata/_custom_type_script = "uid://cp17lsy7ql8y4"
