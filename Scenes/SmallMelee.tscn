@@ -329,11 +329,18 @@ states/Walk/position = Vector2(391, 39)
 transitions = ["Die", "End", SubResource("AnimationNodeStateMachineTransition_yfu5p"), "Start", "Walk", SubResource("AnimationNodeStateMachineTransition_q8223"), "Walk", "Die", SubResource("AnimationNodeStateMachineTransition_leq33"), "Walk", "Hit", SubResource("AnimationNodeStateMachineTransition_0m7bn"), "Hit", "Walk", SubResource("AnimationNodeStateMachineTransition_8uwek")]
 graph_offset = Vector2(-392, -3)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=150976596 node_paths=PackedStringArray("animator")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_asxmr"]
+radius = 67.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=150976596 node_paths=PackedStringArray("Collider", "ExplosionArea", "ExplosionCollider", "animator")]
 collision_layer = 2
 collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_asxmr")
+Collider = NodePath("CollisionShape2D")
+ExplosionArea = NodePath("Area2D")
+ExplosionCollider = NodePath("Area2D/CollisionShape2D")
+BaseExplosionRadius = 67.0
 animator = NodePath("AnimationTree")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=377016345]
@@ -353,3 +360,10 @@ advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Hit/blend_position = Vector2(-0.0076280236, 0.8117155)
 parameters/Walk/blend_position = Vector2(-0.09480566, -0.05857742)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1288798381]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1069692964]
+shape = SubResource("CircleShape2D_asxmr")
