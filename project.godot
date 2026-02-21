@@ -16,6 +16,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+GameMaster="*uid://46524svigvom"
 AudioManager="*uid://ks0kt6wso02g"
 
 [display]
