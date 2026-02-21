@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://dp6ni3pipkv0a"]
+
+[ext_resource type="Script" uid="uid://3snos8bqmecv" path="res://EnemyBullet.cs" id="1_i5veg"]
+[ext_resource type="Texture2D" uid="uid://dhe7ryf6m5kca" path="res://Sprites/Enemies/Bullet.png" id="2_701ao"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xv6bn"]
+atlas = ExtResource("2_701ao")
+region = Rect2(0, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3wkw"]
+atlas = ExtResource("2_701ao")
+region = Rect2(20, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tbfa"]
+atlas = ExtResource("2_701ao")
+region = Rect2(40, 0, 20, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cdnye"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xv6bn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3wkw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tbfa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tk7gp"]
+size = Vector2(15, 13)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=117052821 node_paths=PackedStringArray("sprite")]
+collision_layer = 8
+script = ExtResource("1_i5veg")
+sprite = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1171460441]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_cdnye")
+frame_progress = 0.730283
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1089766546]
+position = Vector2(2.5, -0.5)
+shape = SubResource("RectangleShape2D_tk7gp")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=107791790]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="OnScreenExit"]

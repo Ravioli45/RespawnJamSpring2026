@@ -1,8 +1,16 @@
 using Godot;
 using System;
 
-public partial class Bullet : CharacterBody2D
+public partial class EnemyBullet : Bullet
 {
+
+	[Export]
+	AnimatedSprite2D sprite;
+	public override void _Ready()
+    {
+		sprite.Play("default");
+        
+    }
     public override void _PhysicsProcess(double delta)
     {
         base._PhysicsProcess(delta);
@@ -12,9 +20,9 @@ public partial class Bullet : CharacterBody2D
         for (int i = 0; i < GetSlideCollisionCount(); i++)
             {
                 var collision = GetSlideCollision(i);
-                if (collision.GetCollider() is Enemy E)
+                if (collision.GetCollider() is Player P)
                 {
-                    E.TakeDamage(1, Velocity.Normalized());
+                    //P.TakeDamage(1, Velocity.Normalized());
 					this.CallDeferred("queue_free");
                     break;
                 }
@@ -22,8 +30,4 @@ public partial class Bullet : CharacterBody2D
 
     }
 
-    public void OnScreenExit()
-    {
-        QueueFree();
-    }
 }
