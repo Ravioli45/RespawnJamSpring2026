@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://chafhykpx2ysc" path="res://RangedEnemy.cs" id="1_31icx"]
 [ext_resource type="PackedScene" uid="uid://dp6ni3pipkv0a" path="res://Scenes/EnemyBullet.tscn" id="2_wfa1c"]
 [ext_resource type="Texture2D" uid="uid://dcy1jgyh7ygdw" path="res://Sprites/Enemies/BigFlying.png" id="3_8lv42"]
+[ext_resource type="PackedScene" uid="uid://cu4plojre7ssu" path="res://Scenes/Explosions/RangedExplosion.tscn" id="4_wfa1c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pt8uj"]
 size = Vector2(56, 35)
@@ -342,6 +343,7 @@ BulletSpawnPoint = NodePath("BulletSpawn")
 ExplosionArea = NodePath("Area2D")
 ExplosionCollider = NodePath("Area2D/CollisionShape2D")
 BaseExplosionRadius = 80.0
+ExplosionGraphic = ExtResource("4_wfa1c")
 animator = NodePath("AnimationTree")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1207632511]

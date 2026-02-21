@@ -23,6 +23,8 @@ public partial class Enemy : CharacterBody2D
 	private CollisionShape2D ExplosionCollider;
 	[Export]
 	private float BaseExplosionRadius;
+	[Export]
+	PackedScene ExplosionGraphic;
 
 	public bool isInKnockback = false;
     public int hitlagtimer = 0;
@@ -39,14 +41,24 @@ public partial class Enemy : CharacterBody2D
     {
         base._PhysicsProcess(delta);
 
-		if(isExploding){
+		if(isExploding)
+		{
 			detonationtimer --;
-			if(detonationtimer <= 0)
+			if(detonationtimer == 20)
+			{
+				ExplodeGraphic Graphic = ExplosionGraphic.Instantiate<ExplodeGraphic>();
+				GetParent().AddChild(Graphic);
+				Graphic.GlobalPosition = GlobalPosition;
+				Graphic.Explode();
+			}
+			else if(detonationtimer <= 0)
 			{
 				GD.Print("Die Now");
 				CallDeferred("queue_free");
 			}
-		}else if (isInKnockback)
+		}
+
+		else if (isInKnockback)
 		{
 			State = EnemyState.HITLAG;
 			if (hitlagtimer <= 0)
@@ -55,7 +67,10 @@ public partial class Enemy : CharacterBody2D
 				State = EnemyState.WALKING;
 			}
 			hitlagtimer --;
-		}else if(isAttacking){
+		}
+		
+		else if(isAttacking)
+		{
 			if(ShootLag <= 0)
 			{
 				isAttacking = false;
@@ -65,7 +80,10 @@ public partial class Enemy : CharacterBody2D
 			MoveAtPlayer();
 			MoveAndSlide();
 		
-		}else{	
+		}
+
+		else
+		{	
 			MoveAtPlayer();
 			MoveAndSlide();
 		}
@@ -104,7 +122,10 @@ public partial class Enemy : CharacterBody2D
 	{
 		GD.Print("Explode!");
 		detonationtimer = 40;
-		
+
+		//if (ExplosionGraphic is ExplodeGraphic e) e.Explode();
+        //await ToSignal(GetTree().CreateTimer(.5), "timeout");
+
 		isExploding = true;
 		(ExplosionCollider.Shape as CircleShape2D).Radius = BaseExplosionRadius * explosionSizeMultiplier;
 		
@@ -116,7 +137,7 @@ public partial class Enemy : CharacterBody2D
 		{
 			if(E == this || E.Hp <= 0) continue;
 			Godot.Vector2 dir = (E.GlobalPosition - this.Position).Normalized();
-			
+
 			E.TakeDamage((int)explosionDamage, dir);
 			
 		}

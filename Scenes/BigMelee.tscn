@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ba4nahg3bagiq" path="res://Scripts/Enemy.cs" id="1_wgs5b"]
 [ext_resource type="Texture2D" uid="uid://d1uske2qt0ual" path="res://Sprites/Enemies/MeleeBig.png" id="2_p6lsw"]
+[ext_resource type="PackedScene" uid="uid://h1c66xpu65rm" path="res://Scenes/Explosions/MeleeExplosion.tscn" id="3_p6lsw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvy4k"]
 size = Vector2(42, 47)
@@ -336,6 +337,7 @@ script = ExtResource("1_wgs5b")
 ExplosionArea = NodePath("Area2D")
 ExplosionCollider = NodePath("Area2D/CollisionShape2D")
 BaseExplosionRadius = 67.0
+ExplosionGraphic = ExtResource("3_p6lsw")
 animator = NodePath("AnimationTree")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=117164067]

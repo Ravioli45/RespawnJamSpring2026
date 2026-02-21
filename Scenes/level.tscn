@@ -2,7 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://bg47usqr7is0n" path="res://Scenes/big_tile_manager.tscn" id="1_k5f4k"]
 [ext_resource type="PackedScene" uid="uid://dkq72cf1qc44c" path="res://Scenes/player.tscn" id="2_6phgx"]
+[ext_resource type="PackedScene" uid="uid://do6f52himnsjl" path="res://Scenes/SmallFlying.tscn" id="4_8c0lf"]
 [ext_resource type="PackedScene" uid="uid://dnmu7jq27mqst" path="res://Scenes/follow_camera.tscn" id="4_81xng"]
+[ext_resource type="PackedScene" uid="uid://uncxp0fy4ivl" path="res://Scenes/SmallMelee.tscn" id="5_754fn"]
+[ext_resource type="PackedScene" uid="uid://cwwm1vkdl71sx" path="res://Scenes/BigMelee.tscn" id="6_bvt00"]
+[ext_resource type="PackedScene" uid="uid://c543je4f061an" path="res://Scenes/BigFlying.tscn" id="7_oqgf2"]
 
 [node name="GameMaster" type="Node2D" unique_id=197642299]
 
@@ -14,3 +18,15 @@ position = Vector2(39, 33)
 [node name="FollowCamera" parent="." unique_id=1389545954 node_paths=PackedStringArray("Target") instance=ExtResource("4_81xng")]
 Target = NodePath("../Player")
 Following = true
+
+[node name="CharacterBody2D" parent="." unique_id=1016513456 instance=ExtResource("4_8c0lf")]
+position = Vector2(131, -75)
+
+[node name="CharacterBody2D2" parent="." unique_id=150976596 instance=ExtResource("5_754fn")]
+position = Vector2(253, 9)
+
+[node name="CharacterBody2D3" parent="." unique_id=667536284 instance=ExtResource("6_bvt00")]
+position = Vector2(236, 174)
+
+[node name="CharacterBody2D4" parent="." unique_id=971341444 instance=ExtResource("7_oqgf2")]
+position = Vector2(209, 318)
