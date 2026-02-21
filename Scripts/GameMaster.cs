@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Godot.Collections;
 
 public partial class GameMaster : Node
 {
@@ -10,6 +11,9 @@ public partial class GameMaster : Node
     [Export]
     public BuffableStats CurrentBuffs { get; set; }
     private BuffableStats InitialStats { get; set; }
+
+    [Export]
+    public Array<BuffItemInfo> buffPool;
 
     public Vector2 PlayerPosition
     {

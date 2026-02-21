@@ -13,5 +13,5 @@ script = ExtResource("1_ljqwn")
 StatChanges = SubResource("Resource_b7316")
 BuffTypeTexture = ExtResource("1_jdpb8")
 ItemName = "Collateral Damage"
-Description = "Fires 1 projectile from an exploding enemy in a random direction. (+1 projectile per stack)"
+Description = "Explosions can fire 1 projectile in a random direction. (+1 per stack)"
 metadata/_custom_type_script = "uid://cp17lsy7ql8y4"

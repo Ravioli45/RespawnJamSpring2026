@@ -1,11 +1,7 @@
 [gd_scene format=3 uid="uid://hpd565byfhst"]
 
 [ext_resource type="Script" uid="uid://ci68u3sd2x4wa" path="res://Scripts/BuffIcon.cs" id="1_cb268"]
-[ext_resource type="Texture2D" uid="uid://kbmsuf4bvpwy" path="res://Sprites/SDCards/M-Power_Card.png" id="2_ed2fu"]
-[ext_resource type="Texture2D" uid="uid://bs0bjs0dvonpb" path="res://Sprites/SDCards/Blaster_Pew-Pew.png" id="3_avi6m"]
-[ext_resource type="Texture2D" uid="uid://cjewdv0igo131" path="res://Sprites/SDCards/Self_M-Provement.png" id="4_6qiig"]
-[ext_resource type="Texture2D" uid="uid://dyj2k0cl16jd" path="res://Sprites/SDCards/Gift_Box.png" id="5_cmnn6"]
-[ext_resource type="Texture2D" uid="uid://ds6pj2is8j4p3" path="res://Sprites/SDCards/Boom-Splodey.png" id="6_1i5mb"]
+[ext_resource type="Texture2D" uid="uid://ehoadjv680ta" path="res://Sprites/SDCards/SDCardTiny.png" id="2_ij280"]
 
 [sub_resource type="SystemFont" id="SystemFont_b0dsw"]
 font_names = PackedStringArray("Verdana")
@@ -17,120 +13,76 @@ font_names = PackedStringArray("Verdana")
 font_weight = 500
 subpixel_positioning = 0
 
-[node name="Control" type="Control" unique_id=1665922093 node_paths=PackedStringArray("Blaster", "Fist", "GiftBox", "Explosion", "BuffName", "Description")]
+[node name="Control" type="Control" unique_id=1665922093 node_paths=PackedStringArray("Icon", "BuffName", "Description")]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 3
-anchor_left = 0.14
-anchor_top = 0.24800001
-anchor_right = 0.14
-anchor_bottom = 0.24800001
-offset_left = -161.28
-offset_top = -160.70401
-offset_right = 160.72
-offset_bottom = 161.29599
+anchor_left = 0.1
+anchor_top = 0.178
+anchor_right = 0.1
+anchor_bottom = 0.178
+offset_left = -64.0
+offset_top = -64.08
+offset_right = 64.0
+offset_bottom = 63.92
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cb268")
-Blaster = NodePath("SDCole/Blaster")
-Fist = NodePath("SDCole/Fist")
-GiftBox = NodePath("SDCole/GiftBox")
-Explosion = NodePath("SDCole/Explosion")
+Icon = NodePath("SDCole/Icon")
 BuffName = NodePath("SDCole/BuffName")
 Description = NodePath("SDCole/Description")
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="SDCole" type="TextureRect" parent="." unique_id=1414822075]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -161.0
-offset_top = -161.0
-offset_right = 161.0
-offset_bottom = 161.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_ed2fu")
+texture = ExtResource("2_ij280")
 expand_mode = 1
+stretch_mode = 2
 
-[node name="Blaster" type="TextureRect" parent="SDCole" unique_id=1642174754]
-visible = false
+[node name="Icon" type="TextureRect" parent="SDCole" unique_id=853694282]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.666
-anchor_top = 0.846
-anchor_right = 0.666
-anchor_bottom = 0.846
-offset_left = -45.451996
-offset_top = -45.412018
-offset_right = 45.548004
-offset_bottom = 45.587982
-texture = ExtResource("3_avi6m")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Fist" type="TextureRect" parent="SDCole" unique_id=863645262]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.67200005
-anchor_top = 0.84300005
-anchor_right = 0.67200005
-anchor_bottom = 0.84300005
-offset_left = -45.384003
-offset_top = -45.446014
-offset_right = 45.615982
-offset_bottom = 45.553986
-texture = ExtResource("4_6qiig")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="GiftBox" type="TextureRect" parent="SDCole" unique_id=12691395]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.697
-anchor_top = 0.846
-anchor_right = 0.697
-anchor_bottom = 0.846
-offset_left = -45.434006
-offset_top = -45.412018
-offset_right = 45.565994
-offset_bottom = 45.587982
-texture = ExtResource("5_cmnn6")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Explosion" type="TextureRect" parent="SDCole" unique_id=1508717827]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.69600004
-anchor_top = 0.851
-anchor_right = 0.69600004
-anchor_bottom = 0.851
-offset_left = -37.112015
-offset_top = -37.022003
-offset_right = 36.887985
-offset_bottom = 36.977997
-texture = ExtResource("6_1i5mb")
+anchor_left = 0.7034375
+anchor_top = 0.84362507
+anchor_right = 0.7034375
+anchor_bottom = 0.84362507
+offset_left = -16.04
+offset_top = -15.984009
+offset_right = 15.959999
+offset_bottom = 16.015991
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="BuffName" type="Label" parent="SDCole" unique_id=80762311]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.416
-anchor_top = 0.846
-anchor_right = 0.416
-anchor_bottom = 0.846
-offset_left = -49.951996
-offset_top = -11.412018
-offset_right = 50.048004
-offset_bottom = 11.587982
+anchor_left = 0.43
+anchor_top = 0.836
+anchor_right = 0.43
+anchor_bottom = 0.836
+offset_left = -23.04
+offset_top = -11.008003
+offset_right = 22.96
+offset_bottom = 10.991997
+theme_override_constants/line_spacing = 0
 theme_override_fonts/font = SubResource("SystemFont_b0dsw")
+theme_override_font_sizes/font_size = 8
 text = "Sample Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Description" type="Label" parent="SDCole" unique_id=1965584932]
 layout_mode = 1
@@ -139,13 +91,28 @@ anchor_left = 0.50600004
 anchor_top = 0.46100003
 anchor_right = 0.50600004
 anchor_bottom = 0.46100003
-offset_left = -83.93201
-offset_top = -92.442
-offset_right = 84.06799
-offset_bottom = 92.558
+offset_left = -35.768005
+offset_top = -39.008003
+offset_right = 34.231995
+offset_bottom = 38.991997
+theme_override_constants/line_spacing = 0
 theme_override_fonts/font = SubResource("SystemFont_co8qo")
+theme_override_font_sizes/font_size = 8
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 clip_text = true
+
+[node name="Button" type="Control" parent="." unique_id=1789822308]
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -64.0
+offset_right = 49.0
+offset_bottom = 64.0
+
+[connection signal="gui_input" from="Button" to="." method="OnButtonPressed"]
