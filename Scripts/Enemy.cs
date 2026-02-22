@@ -15,6 +15,7 @@ public partial class Enemy : CharacterBody2D
 
 	public EnemyState State { get; private set; } = EnemyState.WALKING;
     
+	[Export]
 	public int Hp = 2;
 
 	[Export]
@@ -50,6 +51,7 @@ public partial class Enemy : CharacterBody2D
 			detonationtimer--;
 			if (detonationtimer == 20)
 			{
+				Explode(GameMaster.Instance.CurrentBuffs.ExplosionRadiusMultiplier, 10*GameMaster.Instance.CurrentBuffs.ExplosionDamageMultiplier);
 				ExplodeGraphic Graphic = ExplosionGraphic.Instantiate<ExplodeGraphic>();
 				GetParent().AddChild(Graphic);
 				Graphic.GlobalPosition = GlobalPosition;
@@ -105,10 +107,12 @@ public partial class Enemy : CharacterBody2D
 		this.Hp -= base_damage;
 		if (this.Hp <= 0)
 		{
+			detonationtimer = 40;
+			isExploding = true;
 			EnemyCollider.Disabled = true;
 			GameMaster.Instance.enemiesKilled += 1;
 			State = EnemyState.DIE;
-			Explode(GameMaster.Instance.CurrentBuffs.ExplosionRadiusMultiplier, GameMaster.Instance.CurrentBuffs.ExplosionDamageMultiplier);
+			//Explode(GameMaster.Instance.CurrentBuffs.ExplosionRadiusMultiplier, 10*GameMaster.Instance.CurrentBuffs.ExplosionDamageMultiplier);
 			//Queue Free Enemy Here
 			for (int i = 0; i < GameMaster.Instance.CurrentBuffs.ProjectilesOnDeath; i++)
 			{
@@ -124,7 +128,11 @@ public partial class Enemy : CharacterBody2D
 
 			if (GD.Randf() < GameMaster.Instance.CurrentBuffs.ChainExplosionChance)
 			{
-				Explode(GameMaster.Instance.CurrentBuffs.ExplosionRadiusMultiplier, GameMaster.Instance.CurrentBuffs.ExplosionDamageMultiplier);
+				Explode(GameMaster.Instance.CurrentBuffs.ExplosionRadiusMultiplier, 10*GameMaster.Instance.CurrentBuffs.ExplosionDamageMultiplier);
+				ExplodeGraphic Graphic = ExplosionGraphic.Instantiate<ExplodeGraphic>();
+				GetParent().AddChild(Graphic);
+				Graphic.GlobalPosition = GlobalPosition;
+				Graphic.Explode();
 			}
 			//Knockback
 			if (!isInKnockback)
@@ -144,12 +152,12 @@ public partial class Enemy : CharacterBody2D
 	public void Explode(float explosionSizeMultiplier, float explosionDamage)
 	{
 		GD.Print("Explode!");
-		detonationtimer = 40;
+		
 
 		//if (ExplosionGraphic is ExplodeGraphic e) e.Explode();
         //await ToSignal(GetTree().CreateTimer(.5), "timeout");
 
-		isExploding = true;
+		
 		AudioManager.Instance.PlaySFX($"explosion_{GD.RandRange(1, 6)}");
 		(ExplosionCollider.Shape as CircleShape2D).Radius = BaseExplosionRadius * explosionSizeMultiplier;
 		

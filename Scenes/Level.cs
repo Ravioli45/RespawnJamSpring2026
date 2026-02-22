@@ -52,8 +52,7 @@ public partial class Level : Node2D
 		base._Process(delta);
 
 		InfoLabel.Text = $"HP: {player.Health}\n" +
-		$"Enemies Killed: {GameMaster.Instance.enemiesKilled}\n" +
-		$"Waves survived: {GameMaster.Instance.wavesSurvived}";
+		$"Wave {GameMaster.Instance.wavesSurvived + 1}";
 
 		TimerLabel.Text = $"Shop Timer: {(int)WaveTimer.TimeLeft}";
     }

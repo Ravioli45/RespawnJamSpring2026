@@ -48,8 +48,7 @@ offset_right = 135.04
 offset_bottom = 60.12
 theme_override_constants/line_spacing = 0
 text = "HP: 5
-Enemies Killed: 0
-Waves: Survived: 0"
+Wave 1"
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="UILayer" unique_id=1251346900]
@@ -76,7 +75,7 @@ Target = NodePath("../Player")
 Following = true
 
 [node name="WaveTimer" type="Timer" parent="." unique_id=1083659638]
-wait_time = 60.0
+wait_time = 30.0
 one_shot = true
 autostart = true
 

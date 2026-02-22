@@ -251,6 +251,9 @@ _data = {
 &"WalkRight": SubResource("Animation_sv6a2")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2ipys"]
+animation = &"Die"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6w4v1"]
 animation = &"HitRight"
 
@@ -297,9 +300,6 @@ blend_point_3/node = SubResource("AnimationNodeAnimation_05mki")
 blend_point_3/pos = Vector2(1, 0)
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2ipys"]
-animation = &"Die"
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5843e"]
 advance_mode = 2
 advance_expression = "IsDie()"
@@ -320,27 +320,25 @@ advance_expression = "IsHit()"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1undn"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xajag"]
-switch_mode = 2
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5kq4j"]
-states/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_nwl1w")
-states/BlendSpace2D/position = Vector2(485, 64)
-"states/BlendSpace2D 2/node" = SubResource("AnimationNodeBlendSpace2D_gu6f4")
-"states/BlendSpace2D 2/position" = Vector2(456, 174)
 states/Die/node = SubResource("AnimationNodeAnimation_2ipys")
 states/Die/position = Vector2(661, 123)
-transitions = ["BlendSpace2D", "Die", SubResource("AnimationNodeStateMachineTransition_5843e"), "BlendSpace2D 2", "Die", SubResource("AnimationNodeStateMachineTransition_ee0qo"), "BlendSpace2D 2", "BlendSpace2D", SubResource("AnimationNodeStateMachineTransition_gam6k"), "BlendSpace2D", "BlendSpace2D 2", SubResource("AnimationNodeStateMachineTransition_r4iyh"), "Start", "BlendSpace2D", SubResource("AnimationNodeStateMachineTransition_1undn"), "Die", "End", SubResource("AnimationNodeStateMachineTransition_xajag")]
+states/Hit/node = SubResource("AnimationNodeBlendSpace2D_gu6f4")
+states/Hit/position = Vector2(456, 174)
+states/Walk/node = SubResource("AnimationNodeBlendSpace2D_nwl1w")
+states/Walk/position = Vector2(485, 64)
+transitions = ["Walk", "Die", SubResource("AnimationNodeStateMachineTransition_5843e"), "Hit", "Die", SubResource("AnimationNodeStateMachineTransition_ee0qo"), "Hit", "Walk", SubResource("AnimationNodeStateMachineTransition_gam6k"), "Walk", "Hit", SubResource("AnimationNodeStateMachineTransition_r4iyh"), "Start", "Walk", SubResource("AnimationNodeStateMachineTransition_1undn")]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_31icx"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=971341444 node_paths=PackedStringArray("BulletSpawnPoint", "EnemyCollider", "ExplosionArea", "ExplosionCollider", "animator")]
 collision_layer = 2
 collision_mask = 5
+motion_mode = 1
 script = ExtResource("1_31icx")
 BulletScene = ExtResource("2_wfa1c")
 BulletSpawnPoint = NodePath("BulletSpawn")
+Hp = 80
 EnemyCollider = NodePath("CollisionShape2D")
 ExplosionArea = NodePath("Area2D")
 ExplosionCollider = NodePath("Area2D/CollisionShape2D")
@@ -365,8 +363,8 @@ libraries/ = SubResource("AnimationLibrary_tdh6n")
 tree_root = SubResource("AnimationNodeStateMachine_5kq4j")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
-parameters/BlendSpace2D/blend_position = Vector2(-0.18265021, 0.11715484)
-"parameters/BlendSpace2D 2/blend_position" = Vector2(-0.1770792, -0.08786607)
+parameters/Hit/blend_position = Vector2(0, 0)
+parameters/Walk/blend_position = Vector2(-0.18265021, 0.11715484)
 
 [node name="BulletSpawn" type="Node2D" parent="." unique_id=63664682]
 position = Vector2(9, 0)

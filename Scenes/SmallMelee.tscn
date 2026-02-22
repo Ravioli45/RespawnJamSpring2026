@@ -299,10 +299,6 @@ blend_point_3/node = SubResource("AnimationNodeAnimation_ikwhh")
 blend_point_3/pos = Vector2(1, 0)
 blend_mode = 1
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yfu5p"]
-switch_mode = 2
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q8223"]
 advance_mode = 2
 
@@ -328,7 +324,7 @@ states/Hit/position = Vector2(391, 222)
 states/Start/position = Vector2(201, 100)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_6iwjs")
 states/Walk/position = Vector2(391, 39)
-transitions = ["Die", "End", SubResource("AnimationNodeStateMachineTransition_yfu5p"), "Start", "Walk", SubResource("AnimationNodeStateMachineTransition_q8223"), "Walk", "Die", SubResource("AnimationNodeStateMachineTransition_leq33"), "Walk", "Hit", SubResource("AnimationNodeStateMachineTransition_0m7bn"), "Hit", "Walk", SubResource("AnimationNodeStateMachineTransition_8uwek")]
+transitions = ["Start", "Walk", SubResource("AnimationNodeStateMachineTransition_q8223"), "Walk", "Die", SubResource("AnimationNodeStateMachineTransition_leq33"), "Walk", "Hit", SubResource("AnimationNodeStateMachineTransition_0m7bn"), "Hit", "Walk", SubResource("AnimationNodeStateMachineTransition_8uwek")]
 graph_offset = Vector2(-392, -3)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_asxmr"]
@@ -339,6 +335,7 @@ collision_layer = 2
 collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_asxmr")
+Hp = 20
 EnemyCollider = NodePath("CollisionShape2D")
 ExplosionArea = NodePath("Area2D")
 ExplosionCollider = NodePath("Area2D/CollisionShape2D")
