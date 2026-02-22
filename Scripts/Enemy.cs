@@ -104,13 +104,13 @@ public partial class Enemy : CharacterBody2D
 			Explode(GameMaster.Instance.CurrentBuffs.ExplosionRadiusMultiplier, GameMaster.Instance.CurrentBuffs.ExplosionDamageMultiplier);
 			//Queue Free Enemy Here
 		}else{
-		//Knockback
-		if(!isInKnockback){
-		isInKnockback = true;
-		hitlagtimer = 30;
-		}
-		Velocity = directionHit * 1000;
-		MoveAndSlide();
+			//Knockback
+			if(!isInKnockback){
+				isInKnockback = true;
+				hitlagtimer = 30;
+			}
+			Velocity = directionHit * 1000;
+			MoveAndSlide();
 		}
 	}
 	public virtual void MoveAtPlayer()
@@ -133,13 +133,15 @@ public partial class Enemy : CharacterBody2D
 
 		
 		///*
-		foreach(Enemy E in ExplosionArea.GetOverlappingBodies())
+		foreach(Node2D N in ExplosionArea.GetOverlappingBodies())
 		{
-			if(E == this || E.Hp <= 0) continue;
-			Godot.Vector2 dir = (E.GlobalPosition - this.Position).Normalized();
+			if (N is Enemy E)
+			{
+				if (E == this || E.Hp <= 0) continue;
+				Godot.Vector2 dir = (E.GlobalPosition - this.Position).Normalized();
 
-			E.TakeDamage((int)explosionDamage, dir);
-			
+				E.TakeDamage((int)explosionDamage, dir);
+			}
 		}
 		//*/
 		

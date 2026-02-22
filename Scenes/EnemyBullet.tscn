@@ -37,6 +37,7 @@ size = Vector2(15, 13)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=117052821 node_paths=PackedStringArray("sprite")]
 collision_layer = 8
+motion_mode = 1
 script = ExtResource("1_i5veg")
 sprite = NodePath("AnimatedSprite2D")
 

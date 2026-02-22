@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://damh8komwfas"]
+[gd_scene format=3 uid="uid://b0r7ihrgbkb6s"]
 
 [ext_resource type="PackedScene" uid="uid://bg47usqr7is0n" path="res://Scenes/big_tile_manager.tscn" id="1_k5f4k"]
 [ext_resource type="Script" uid="uid://kkbfx73whw7e" path="res://Scenes/Level.cs" id="1_wqkje"]
@@ -7,9 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://uncxp0fy4ivl" path="res://Scenes/SmallMelee.tscn" id="4_wqkje"]
 [ext_resource type="PackedScene" uid="uid://cwwm1vkdl71sx" path="res://Scenes/BigMelee.tscn" id="5_wqkje"]
 [ext_resource type="PackedScene" uid="uid://do6f52himnsjl" path="res://Scenes/SmallFlying.tscn" id="6_0f350"]
+[ext_resource type="PackedScene" uid="uid://so45cpbd24al" path="res://Scenes/shop.tscn" id="6_bvt00"]
 [ext_resource type="PackedScene" uid="uid://c543je4f061an" path="res://Scenes/BigFlying.tscn" id="7_8c0lf"]
 
-[node name="GameMaster" type="Node2D" unique_id=197642299 node_paths=PackedStringArray("Spawnlocation", "player")]
+[node name="Level" type="Node2D" unique_id=197642299 node_paths=PackedStringArray("Spawnlocation", "player", "shop", "LevelModulate", "WaveTimer")]
 script = ExtResource("1_wqkje")
 SmallMelee = ExtResource("4_wqkje")
 LargeMelee = ExtResource("5_wqkje")
@@ -17,7 +18,16 @@ SmallFlying = ExtResource("6_0f350")
 LargeFlying = ExtResource("7_8c0lf")
 Spawnlocation = NodePath("Player/Enemy Spawner")
 player = NodePath("Player")
+shop = NodePath("ShopLayer/Shop")
+LevelModulate = NodePath("LevelModulate")
+WaveTimer = NodePath("WaveTimer")
 EnemiesList = Array[PackedScene]([ExtResource("4_wqkje")])
+
+[node name="ShopLayer" type="CanvasLayer" parent="." unique_id=1101972049]
+process_mode = 3
+
+[node name="Shop" parent="ShopLayer" unique_id=739733693 instance=ExtResource("6_bvt00")]
+visible = false
 
 [node name="BigTileManager" parent="." unique_id=1940092986 instance=ExtResource("1_k5f4k")]
 
@@ -36,4 +46,7 @@ wait_time = 60.0
 one_shot = true
 autostart = true
 
+[node name="LevelModulate" type="CanvasModulate" parent="." unique_id=452379422]
+
+[connection signal="ShopClosed" from="ShopLayer/Shop" to="." method="OnShopClosed"]
 [connection signal="timeout" from="WaveTimer" to="." method="OnWaveTimerTimeout"]

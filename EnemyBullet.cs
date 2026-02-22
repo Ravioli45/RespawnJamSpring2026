@@ -18,15 +18,15 @@ public partial class EnemyBullet : Bullet
         MoveAndSlide();
 
         for (int i = 0; i < GetSlideCollisionCount(); i++)
+        {
+            var collision = GetSlideCollision(i);
+            if (collision.GetCollider() is Player P)
             {
-                var collision = GetSlideCollision(i);
-                if (collision.GetCollider() is Player P)
-                {
-                    //P.TakeDamage(1, Velocity.Normalized());
-					this.CallDeferred("queue_free");
-                    break;
-                }
+                P.TakeHit();
+                this.CallDeferred("queue_free");
+                break;
             }
+        }
 
     }
 

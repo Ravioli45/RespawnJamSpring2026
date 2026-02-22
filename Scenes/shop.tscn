@@ -63,6 +63,7 @@ animations = [{
 
 [node name="Shop" type="Control" unique_id=739733693 node_paths=PackedStringArray("ShopSprite", "ShopItemContainer")]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -111,8 +112,6 @@ texture_filter = 1
 scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_tyrku")
 animation = &"Open"
-frame = 6
-frame_progress = 1.0
 centered = false
 
 [connection signal="visibility_changed" from="." to="." method="OnVisibilityChanged"]

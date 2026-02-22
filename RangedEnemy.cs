@@ -40,7 +40,7 @@ public partial class RangedEnemy : Enemy
 		
 
         Bullet bullet = BulletScene.Instantiate<Bullet>();
-        GetParent().GetParent().AddChild(bullet);
+        GetParent().AddChild(bullet);
         bullet.GlobalPosition = BulletSpawnPoint.GlobalPosition;
 		Godot.Vector2 direction = (GameMaster.Instance.PlayerPosition - this.GlobalPosition).Normalized();
         bullet.Rotation = Mathf.Atan2(direction.Y, direction.X);

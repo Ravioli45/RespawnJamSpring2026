@@ -19,6 +19,12 @@ public partial class Level : Node2D
 	[Export]
 	Player player;
 	[Export]
+	private Shop shop;
+	[Export]
+	private CanvasModulate LevelModulate;
+	[Export]
+	private Timer WaveTimer;
+	[Export]
 	public Array<PackedScene> EnemiesList;
 	private int WaveNumber = 1;
 	//Difficulty increases spawwnrate
@@ -28,29 +34,29 @@ public partial class Level : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-	
+
 	}
 
-	
 
-    public override void _PhysicsProcess(double delta)
-    {
+
+	public override void _PhysicsProcess(double delta)
+	{
 		base._PhysicsProcess(delta);
-		if(spawntimer <= 0)
+		if (spawntimer <= 0)
 		{
 			GD.Print("Spawning");
-			
-			float theta = (float)GD.RandRange(0,6.28);
-			Spawnlocation.GlobalPosition = new Vector2(player.GlobalPosition.X + 400*MathF.Cos(theta),player.GlobalPosition.Y + 400*MathF.Sin(theta) ); 
+
+			float theta = (float)GD.RandRange(0, 6.28);
+			Spawnlocation.GlobalPosition = new Vector2(player.GlobalPosition.X + 400 * MathF.Cos(theta), player.GlobalPosition.Y + 400 * MathF.Sin(theta));
 			//Enemy NewEnemy = EnemiesList[0].Instantiate<Enemy>();
-			Enemy NewEnemy = EnemiesList[GD.RandRange(0, EnemiesList.Count-1)].Instantiate<Enemy>();
+			Enemy NewEnemy = EnemiesList[GD.RandRange(0, EnemiesList.Count - 1)].Instantiate<Enemy>();
 			GetParent().AddChild(NewEnemy);
 			NewEnemy.GlobalPosition = Spawnlocation.GlobalPosition;
 			spawntimer = 100;
 		}
-        spawntimer--;
+		spawntimer--;
 
-    }
+	}
 
 	public void OnWaveTimerTimeout()
 	{
@@ -59,6 +65,8 @@ public partial class Level : Node2D
 		spawntimer -= difficulty;
 		CheckEnemies(WaveNumber);
 		GetTree().Paused = true;
+		shop.Visible = true;
+		LevelModulate.Color = new Color(.35f, .35f, .35f, 1);
 	}
 
 	public void changeSpawnLocation()
@@ -70,13 +78,22 @@ public partial class Level : Node2D
 		if (roundNumber == 3)
 		{
 			EnemiesList.Add(SmallFlying);
-		}else if (roundNumber == 5)
+		}
+		else if (roundNumber == 5)
 		{
 			EnemiesList.Add(LargeMelee);
-		}else if (roundNumber == 7)
+		}
+		else if (roundNumber == 7)
 		{
 			EnemiesList.Add(LargeFlying);
 		}
 	}
 
+	public void OnShopClosed()
+	{
+		GetTree().Paused = false;
+		WaveTimer.Start();
+		LevelModulate.Color = new Color(1, 1, 1, 1);
+		shop.Visible = false;
+	}
 }
