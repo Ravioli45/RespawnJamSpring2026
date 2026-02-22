@@ -26,7 +26,7 @@ public partial class Weapon : Node2D
         GetParent().GetParent().AddChild(bullet);
         bullet.GlobalPosition = BulletSpawnPoint.GlobalPosition;
         bullet.Rotation = Rotation;
-        bullet.Velocity = GlobalTransform.X.Normalized() * BulletSpeed + bulletBias;
+        bullet.Velocity = GlobalTransform.X.Normalized() * BulletSpeed /*+ bulletBias*/;
 
         AudioManager.Instance.PlaySFX("player_shoot");
     }

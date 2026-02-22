@@ -14,7 +14,7 @@ public partial class Bullet : CharacterBody2D
                 var collision = GetSlideCollision(i);
                 if (collision.GetCollider() is Enemy E)
                 {
-                    E.TakeDamage(1, Velocity.Normalized());
+                    E.TakeDamage((int)(1 * GameMaster.Instance.CurrentBuffs.ProjectileDamageMultiplier), Velocity.Normalized());
 					this.CallDeferred("queue_free");
                     break;
                 }

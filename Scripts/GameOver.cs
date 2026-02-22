@@ -10,9 +10,10 @@ public partial class GameOver : Control
     public override void _Ready()
     {
         base._Ready();
+        AudioManager.Instance.PlayBGM("shop");
         StatsLabel.Text = "Great shootin', soldier!" + "\n"
-                        + "Total waves survived: " + "[Waves]" + "\n"
-                        + "Total enemies killed: " + "[Kill Count]";
+                        + "Total waves survived: " + GameMaster.Instance.wavesSurvived + "\n"
+                        + "Total enemies killed: " + GameMaster.Instance.enemiesKilled;
     }
 
     public async void MainMenu()

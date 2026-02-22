@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://chafhykpx2ysc" path="res://RangedEnemy.cs" id="1_kdim2"]
 [ext_resource type="Texture2D" uid="uid://k1a2ap1c3let" path="res://Sprites/Enemies/FlyingSmall.png" id="1_ro0nq"]
 [ext_resource type="PackedScene" uid="uid://dp6ni3pipkv0a" path="res://Scenes/EnemyBullet.tscn" id="2_fl8tp"]
+[ext_resource type="PackedScene" uid="uid://cylqwqoo1bcf" path="res://Scenes/bullet.tscn" id="4_edfmn"]
 [ext_resource type="PackedScene" uid="uid://cu4plojre7ssu" path="res://Scenes/Explosions/RangedExplosion.tscn" id="4_wx033"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdim2"]
@@ -335,16 +336,18 @@ transitions = ["Hit", "Walk", SubResource("AnimationNodeStateMachineTransition_u
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fl8tp"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1016513456 node_paths=PackedStringArray("BulletSpawnPoint", "ExplosionArea", "ExplosionCollider", "animator")]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1016513456 node_paths=PackedStringArray("BulletSpawnPoint", "EnemyCollider", "ExplosionArea", "ExplosionCollider", "animator")]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_kdim2")
 BulletScene = ExtResource("2_fl8tp")
 BulletSpawnPoint = NodePath("BulletSpawn")
+EnemyCollider = NodePath("CollisionShape2D")
 ExplosionArea = NodePath("Area2D")
 ExplosionCollider = NodePath("Area2D/CollisionShape2D")
 BaseExplosionRadius = 67.0
 ExplosionGraphic = ExtResource("4_wx033")
+PlayerBullet = ExtResource("4_edfmn")
 animator = NodePath("AnimationTree")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=944936567]

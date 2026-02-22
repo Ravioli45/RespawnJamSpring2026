@@ -22,12 +22,13 @@ public partial class TitleScreen : Control
     [Export]
     Label HelpDescription;
 
-    
+
 
     public override void _Ready()
     {
         base._Ready();
-
+        AudioManager.Instance.PlayBGM("shop");
+        GameMaster.Instance.Reset();
     }
 
     public async void Start()

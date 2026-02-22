@@ -32,6 +32,7 @@ texture = ExtResource("2_ktc4i")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="TextureRect" unique_id=60999425]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.4116895

@@ -6,6 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_b7316"]
 script = ExtResource("2_ubdjk")
+ProjectilesOnDeath = 1
 metadata/_custom_type_script = "uid://cs3x5s1tp052p"
 
 [resource]

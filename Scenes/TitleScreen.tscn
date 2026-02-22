@@ -38,6 +38,7 @@ texture = ExtResource("1_vmg2h")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="TextureRect" unique_id=984425175]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.425

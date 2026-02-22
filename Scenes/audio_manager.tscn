@@ -2,10 +2,32 @@
 
 [ext_resource type="Script" uid="uid://bkn02y2yx52b2" path="res://Scripts/AudioManager.cs" id="1_sm2tf"]
 [ext_resource type="AudioStream" uid="uid://c5p2vc1wuk1xq" path="res://Resources/player_shoot.wav" id="2_4tj6f"]
+[ext_resource type="AudioStream" uid="uid://di1bja4wkivsp" path="res://Resources/main.wav" id="2_qixve"]
+[ext_resource type="AudioStream" uid="uid://dp6c1onkbwvn4" path="res://Resources/shop.wav" id="3_0hehx"]
+[ext_resource type="AudioStream" uid="uid://jerk7aqggvsn" path="res://Resources/DSGNImpt_EXPLOSION-Mecha Damage_HY_PC-003.wav" id="5_pn88s"]
+[ext_resource type="AudioStream" uid="uid://bqgtv3nvc7srh" path="res://Resources/DSGNImpt_EXPLOSION-Mecha Limb Explosion_HY_PC-004.wav" id="6_fasow"]
+[ext_resource type="AudioStream" uid="uid://v3xfkj4g8m7u" path="res://Resources/DSGNImpt_EXPLOSION-Mecha Manablast_HY_PC-006.wav" id="7_1bal0"]
+[ext_resource type="AudioStream" uid="uid://bjacmk35hl486" path="res://Resources/DSGNImpt_EXPLOSION-Mecha Propulsor Ignition_HY_PC-005.wav" id="8_vhwx7"]
+[ext_resource type="AudioStream" uid="uid://dwj0sshi6k36w" path="res://Resources/DSGNImpt_EXPLOSION-Small Flare_HY_PC-002.wav" id="9_bkjj7"]
+[ext_resource type="AudioStream" uid="uid://clhlrhbwib0mm" path="res://Resources/DSGNImpt_EXPLOSION-Voltaic Blast_HY_PC-006.wav" id="10_dv115"]
+[ext_resource type="AudioStream" uid="uid://byhkojoihc84t" path="res://Resources/FGHTImpt_HIT-Strong Smack_HY_PC-004.wav" id="11_tesok"]
+[ext_resource type="AudioStream" uid="uid://bvhu7q1iqgi1f" path="res://Resources/DSGNImpt_EXPLOSION-Thud_HY_PC-004.wav" id="12_s7ae5"]
 
 [node name="AudioManager" type="Node" unique_id=206333255]
 script = ExtResource("1_sm2tf")
-streams = 8
+bgm_list = Dictionary[StringName, AudioStream]({
+&"main": ExtResource("2_qixve"),
+&"shop": ExtResource("3_0hehx")
+})
+streams = 16
 sfx_list = Dictionary[StringName, AudioStream]({
+&"enemy_hit": ExtResource("12_s7ae5"),
+&"explosion_1": ExtResource("5_pn88s"),
+&"explosion_2": ExtResource("6_fasow"),
+&"explosion_3": ExtResource("7_1bal0"),
+&"explosion_4": ExtResource("8_vhwx7"),
+&"explosion_5": ExtResource("9_bkjj7"),
+&"explosion_6": ExtResource("10_dv115"),
+&"player_hit": ExtResource("11_tesok"),
 &"player_shoot": ExtResource("2_4tj6f")
 })

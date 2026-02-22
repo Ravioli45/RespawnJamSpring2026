@@ -215,7 +215,7 @@ states/Walking/position = Vector2(539.6, 99.776)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_fkybt"), "Idle", "Walking", SubResource("AnimationNodeStateMachineTransition_cvnsp"), "Walking", "Idle", SubResource("AnimationNodeStateMachineTransition_6t5aa")]
 
 [node name="Player" type="CharacterBody2D" unique_id=354397576 node_paths=PackedStringArray("Weapon", "animator", "FirerateTimer", "InvincibilityTimer", "InvincibilityFlashTimer")]
-collision_mask = 3
+collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_v0iea")
 Health = 5

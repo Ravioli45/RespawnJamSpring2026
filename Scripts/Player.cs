@@ -3,6 +3,8 @@ using System;
 
 public partial class Player : CharacterBody2D
 {
+    [Signal]
+    public delegate void DiedEventHandler();
 
     public enum PlayerState
     {
@@ -15,7 +17,7 @@ public partial class Player : CharacterBody2D
     private bool invincible = false;
 
     [Export]
-    private int Health;
+    public int Health;
     [Export]
     private float baseSpeed;
     [Export]
@@ -92,16 +94,33 @@ public partial class Player : CharacterBody2D
 
         Velocity = direction * baseSpeed * GameMaster.Instance.CurrentBuffs.MoveSpeedMultiplier;
         MoveAndSlide();
+
+        for (int i = 0; i < GetSlideCollisionCount(); i++)
+        {
+            var collision = GetSlideCollision(i);
+            if (collision.GetCollider() is Enemy)
+            {
+                TakeHit();
+                break;
+            }
+        }
     }
 
     public void TakeHit()
     {
-        if (!invincible)
+        if (invincible) return;
+
+
+        AudioManager.Instance.PlaySFX("player_hit");
+        Health -= 1;
+        invincible = true;
+        InvincibilityTimer.Start();
+        InvincibilityFlashTimer.Start();
+        GD.Print(Health);
+        if (Health <= 0)
         {
-            Health -= 1;
-            invincible = true;
-            InvincibilityTimer.Start();
-            InvincibilityFlashTimer.Start();
+            // game over
+            EmitSignalDied();
         }
     }
 

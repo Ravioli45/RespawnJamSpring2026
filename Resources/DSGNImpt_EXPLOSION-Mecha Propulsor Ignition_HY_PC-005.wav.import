@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bjacmk35hl486"
+path="res://.godot/imported/DSGNImpt_EXPLOSION-Mecha Propulsor Ignition_HY_PC-005.wav-a962687413b2c07118439221fe631df5.sample"
+
+[deps]
+
+source_file="res://Resources/DSGNImpt_EXPLOSION-Mecha Propulsor Ignition_HY_PC-005.wav"
+dest_files=["res://.godot/imported/DSGNImpt_EXPLOSION-Mecha Propulsor Ignition_HY_PC-005.wav-a962687413b2c07118439221fe631df5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

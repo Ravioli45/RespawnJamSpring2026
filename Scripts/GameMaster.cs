@@ -7,6 +7,8 @@ public partial class GameMaster : Node
     public static GameMaster Instance { get; private set; }
 
     public Player PlayerRef { get; set; }
+    public int enemiesKilled;
+    public int wavesSurvived;
 
     [Export]
     public BuffableStats CurrentBuffs { get; set; }
@@ -17,7 +19,17 @@ public partial class GameMaster : Node
 
     public Vector2 PlayerPosition
     {
-        get => PlayerRef.GlobalPosition;
+        get
+        {
+            if (PlayerRef != null)
+            {
+                return PlayerRef.GlobalPosition;
+            }
+            else
+            {
+                return Vector2.Zero;
+            }
+        }
     }
 
     public override void _Ready()
@@ -33,5 +45,12 @@ public partial class GameMaster : Node
         Instance ??= this;
         InitialStats = CurrentBuffs.Duplicate() as BuffableStats;
         GD.Print("GameMaster loaded");
+    }
+
+    public void Reset()
+    {
+        CurrentBuffs = InitialStats.Duplicate() as BuffableStats;
+        enemiesKilled = 0;
+        wavesSurvived = 0;
     }
 }
