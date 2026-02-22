@@ -11,11 +11,13 @@ config_version=5
 [application]
 
 config/name="RespawnSpring2026"
+run/main_scene="uid://b7ymr0lsj5gk3"
 config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
+Transition="*uid://c5fip867jfe58"
 GameMaster="*uid://46524svigvom"
 AudioManager="*uid://ks0kt6wso02g"
 
