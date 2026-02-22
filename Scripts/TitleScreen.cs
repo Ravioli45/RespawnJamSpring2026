@@ -30,9 +30,11 @@ public partial class TitleScreen : Control
 
     }
 
-    public void Start()
+    public async void Start()
     {
-         GetTree().ChangeSceneToFile("res://Scenes/level.tscn");
+        Transition.Instance.TransitionBetweenScenes();
+        await ToSignal(GetTree().CreateTimer(1), "timeout");
+        GetTree().ChangeSceneToFile("res://Scenes/level.tscn");
     }
 
     public void Help()
