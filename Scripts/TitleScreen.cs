@@ -57,8 +57,10 @@ public partial class TitleScreen : Control
         Logo.Visible = true;
     }
 
-    public void Exit()
+    public async void Exit()
     {
+        Transition.Instance.TransitionBetweenScenes();
+        await ToSignal(GetTree().CreateTimer(1), "timeout");
         GetTree().Quit();
     }
 

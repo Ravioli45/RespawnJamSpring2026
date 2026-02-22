@@ -19,11 +19,13 @@ public partial class GameOver : Control
     {
         Transition.Instance.TransitionBetweenScenes();
         await ToSignal(GetTree().CreateTimer(1), "timeout");
-         GetTree().ChangeSceneToFile("res://Scenes/TitleScreen.tscn");
+        GetTree().ChangeSceneToFile("res://Scenes/TitleScreen.tscn");
     }
 
-    public void Exit()
+    public async void Exit()
     {
+        Transition.Instance.TransitionBetweenScenes();
+        await ToSignal(GetTree().CreateTimer(1), "timeout");
         GetTree().Quit();
     }
 
