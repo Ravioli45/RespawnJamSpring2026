@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://hpd565byfhst"]
+
+[ext_resource type="Script" uid="uid://ci68u3sd2x4wa" path="res://Scripts/BuffIcon.cs" id="1_cb268"]
+[ext_resource type="Texture2D" uid="uid://ehoadjv680ta" path="res://Sprites/SDCards/SDCardTiny.png" id="2_ij280"]
+
+[sub_resource type="SystemFont" id="SystemFont_b0dsw"]
+font_names = PackedStringArray("Verdana")
+font_weight = 500
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_co8qo"]
+font_names = PackedStringArray("Verdana")
+font_weight = 500
+subpixel_positioning = 0
+
+[node name="Control" type="Control" unique_id=1665922093 node_paths=PackedStringArray("Icon", "BuffName", "Description")]
+z_index = 1
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 3
+anchor_left = 0.1
+anchor_top = 0.178
+anchor_right = 0.1
+anchor_bottom = 0.178
+offset_left = -64.0
+offset_top = -64.08
+offset_right = 64.0
+offset_bottom = 63.92
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cb268")
+Icon = NodePath("SDCole/Icon")
+BuffName = NodePath("SDCole/BuffName")
+Description = NodePath("SDCole/Description")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="SDCole" type="TextureRect" parent="." unique_id=1414822075]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ij280")
+expand_mode = 1
+stretch_mode = 2
+
+[node name="Icon" type="TextureRect" parent="SDCole" unique_id=853694282]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7034375
+anchor_top = 0.84362507
+anchor_right = 0.7034375
+anchor_bottom = 0.84362507
+offset_left = -16.04
+offset_top = -15.984009
+offset_right = 15.959999
+offset_bottom = 16.015991
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BuffName" type="Label" parent="SDCole" unique_id=80762311]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.43
+anchor_top = 0.836
+anchor_right = 0.43
+anchor_bottom = 0.836
+offset_left = -23.04
+offset_top = -11.008003
+offset_right = 22.96
+offset_bottom = 10.991997
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = SubResource("SystemFont_b0dsw")
+theme_override_font_sizes/font_size = 8
+text = "Sample Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="SDCole" unique_id=1965584932]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.50600004
+anchor_top = 0.46100003
+anchor_right = 0.50600004
+anchor_bottom = 0.46100003
+offset_left = -35.768005
+offset_top = -39.008003
+offset_right = 34.231995
+offset_bottom = 38.991997
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = SubResource("SystemFont_co8qo")
+theme_override_font_sizes/font_size = 8
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="Button" type="Control" parent="." unique_id=1789822308]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -64.0
+offset_right = 49.0
+offset_bottom = 64.0
+
+[connection signal="gui_input" from="Button" to="." method="OnButtonPressed"]

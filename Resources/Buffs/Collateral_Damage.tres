@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BuffItemInfo" format=3 uid="uid://b5sjqt4bfl5eu"]
+
+[ext_resource type="Texture2D" uid="uid://ds6pj2is8j4p3" path="res://Sprites/SDCards/Boom-Splodey.png" id="1_jdpb8"]
+[ext_resource type="Script" uid="uid://cp17lsy7ql8y4" path="res://Scripts/BuffItemInfo.cs" id="1_ljqwn"]
+[ext_resource type="Script" uid="uid://cs3x5s1tp052p" path="res://Scripts/BuffableStats.cs" id="2_ubdjk"]
+
+[sub_resource type="Resource" id="Resource_b7316"]
+script = ExtResource("2_ubdjk")
+metadata/_custom_type_script = "uid://cs3x5s1tp052p"
+
+[resource]
+script = ExtResource("1_ljqwn")
+StatChanges = SubResource("Resource_b7316")
+BuffTypeTexture = ExtResource("1_jdpb8")
+ItemName = "Collateral Damage"
+Description = "Explosions can fire 1 projectile in a random direction. (+1 per stack)"
+metadata/_custom_type_script = "uid://cp17lsy7ql8y4"

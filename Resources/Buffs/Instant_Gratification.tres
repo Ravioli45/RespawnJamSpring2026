@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BuffItemInfo" format=3 uid="uid://b3re3sdc86lr1"]
+
+[ext_resource type="Script" uid="uid://cp17lsy7ql8y4" path="res://Scripts/BuffItemInfo.cs" id="1_4f086"]
+[ext_resource type="Texture2D" uid="uid://ds6pj2is8j4p3" path="res://Sprites/SDCards/Boom-Splodey.png" id="1_4wv4y"]
+[ext_resource type="Script" uid="uid://cs3x5s1tp052p" path="res://Scripts/BuffableStats.cs" id="2_4bqvx"]
+
+[sub_resource type="Resource" id="Resource_ry3yb"]
+script = ExtResource("2_4bqvx")
+ChainExplosionChance = 0.05
+metadata/_custom_type_script = "uid://cs3x5s1tp052p"
+
+[resource]
+script = ExtResource("1_4f086")
+StatChanges = SubResource("Resource_ry3yb")
+BuffTypeTexture = ExtResource("1_4wv4y")
+ItemName = "Instant Gratification"
+Description = "Damaging an enemy has a 5% chance to cause an explosion. (+5% per stack) "
+metadata/_custom_type_script = "uid://cp17lsy7ql8y4"

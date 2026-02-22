@@ -2,6 +2,13 @@
 
 [ext_resource type="Script" uid="uid://2laeyjyprffw" path="res://Scripts/GameMaster.cs" id="1_ldihj"]
 [ext_resource type="Script" uid="uid://cs3x5s1tp052p" path="res://Scripts/BuffableStats.cs" id="2_1fa2w"]
+[ext_resource type="Resource" uid="uid://b32p4h3q5l46u" path="res://Resources/Buffs/amplifier.tres" id="3_4ejbc"]
+[ext_resource type="Resource" uid="uid://bp6lmj3nufsy" path="res://Resources/Buffs/big_bang_theory.tres" id="4_h1rqj"]
+[ext_resource type="Resource" uid="uid://b5sjqt4bfl5eu" path="res://Resources/Buffs/Collateral_Damage.tres" id="5_hwb0o"]
+[ext_resource type="Resource" uid="uid://ckcl170tqsgrb" path="res://Resources/Buffs/Dyna-Might.tres" id="6_6o45n"]
+[ext_resource type="Resource" uid="uid://drac6kqhnjx8t" path="res://Resources/Buffs/Fired_Up.tres" id="7_wxrne"]
+[ext_resource type="Resource" uid="uid://b3re3sdc86lr1" path="res://Resources/Buffs/Instant_Gratification.tres" id="8_sacih"]
+[ext_resource type="Resource" uid="uid://cphdncgjv50jj" path="res://Resources/Buffs/late_to_work.tres" id="9_7gjgw"]
 
 [sub_resource type="Resource" id="Resource_djvcl"]
 script = ExtResource("2_1fa2w")
@@ -15,3 +22,4 @@ metadata/_custom_type_script = "uid://cs3x5s1tp052p"
 [node name="GameMaster" type="Node" unique_id=2051350524]
 script = ExtResource("1_ldihj")
 CurrentBuffs = SubResource("Resource_djvcl")
+buffPool = Array[Object]([ExtResource("3_4ejbc"), ExtResource("4_h1rqj"), ExtResource("5_hwb0o"), ExtResource("6_6o45n"), ExtResource("7_wxrne"), ExtResource("8_sacih"), ExtResource("9_7gjgw")])
