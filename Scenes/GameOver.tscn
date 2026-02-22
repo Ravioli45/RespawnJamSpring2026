@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://cb2j1dwyv4qpj"]
+
+[ext_resource type="Script" uid="uid://5sd0ayamct31" path="res://Scripts/GameOver.cs" id="1_k52d1"]
+[ext_resource type="Texture2D" uid="uid://ce1cqkhh1us6a" path="res://Sprites/Title Screen/PlaceholderBackground.png" id="2_ktc4i"]
+[ext_resource type="FontFile" uid="uid://cmtomj4tifwic" path="res://Sprites/Title Screen/Kabisat Demo-ItalicTall.ttf" id="3_ktc4i"]
+[ext_resource type="Texture2D" uid="uid://cyq77xruljmdp" path="res://Sprites/Title Screen/ButtonNOTHovered.png" id="3_rdiyk"]
+[ext_resource type="Texture2D" uid="uid://bughtjeoxkoyo" path="res://Sprites/Title Screen/ButtonHovered.png" id="4_bfgkh"]
+
+[node name="Control" type="Control" unique_id=330345147 node_paths=PackedStringArray("StatsLabel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k52d1")
+StatsLabel = NodePath("StatsBreakdown")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1689981245]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.453125
+anchor_top = -1.2777778
+anchor_right = 2.2450628
+anchor_bottom = 2.4361112
+offset_right = 0.061645508
+offset_bottom = -6.1035156e-05
+texture = ExtResource("2_ktc4i")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=60999425]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4116895
+anchor_top = 0.56784594
+anchor_right = 0.5091259
+anchor_bottom = 0.59375846
+offset_left = -0.42858887
+offset_top = -0.21000671
+offset_right = -0.05102539
+offset_bottom = 0.1449585
+theme_override_font_sizes/font_size = 11
+text = "This is a placeholder background,
+Andrew will make a sprite of him with arms"
+metadata/_edit_use_anchors_ = true
+
+[node name="Congrats" type="Label" parent="." unique_id=601602369]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.146875
+anchor_top = 0.072222225
+anchor_right = 0.6769376
+anchor_bottom = 0.3106667
+offset_right = -0.24005127
+offset_bottom = 0.1599884
+theme_override_colors/font_color = Color(0.7921569, 0.7921569, 0.7921569, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ktc4i")
+theme_override_font_sizes/font_size = 40
+text = "Good Job!"
+metadata/_edit_use_anchors_ = true
+
+[node name="StatsBreakdown" type="Label" parent="." unique_id=742828063]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2078125
+anchor_top = 0.41944444
+anchor_right = 0.402
+anchor_bottom = 0.483
+offset_right = -0.27999878
+offset_bottom = 0.11999512
+text = "Place Stats here"
+metadata/_edit_use_anchors_ = true
+
+[node name="MainMenuButton" type="TextureButton" parent="." unique_id=655366923]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.707375
+anchor_top = 0.5282222
+anchor_right = 0.92637503
+anchor_bottom = 0.7222222
+offset_left = 0.27999878
+offset_top = -0.16000366
+offset_right = 0.11999512
+texture_normal = ExtResource("3_rdiyk")
+texture_hover = ExtResource("4_bfgkh")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="MainMenuButton" unique_id=1824433942]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.06428572
+anchor_top = 0.2714286
+anchor_right = 0.89300007
+anchor_bottom = 0.771
+offset_right = -0.019996643
+offset_bottom = 0.030002594
+theme_override_colors/font_color = Color(0.7919991, 0.79199916, 0.7919991, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ktc4i")
+theme_override_font_sizes/font_size = 12
+text = "main menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ExitButton" type="TextureButton" parent="." unique_id=1813638369]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.70737505
+anchor_top = 0.7226667
+anchor_right = 0.92637503
+anchor_bottom = 0.9166667
+offset_left = 0.27999878
+offset_top = -0.16000366
+offset_right = 0.11999512
+offset_bottom = -1.5258789e-05
+texture_normal = ExtResource("3_rdiyk")
+texture_hover = ExtResource("4_bfgkh")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ExitButton" unique_id=1658111528]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.12142854
+anchor_top = 0.27142859
+anchor_right = 0.864
+anchor_bottom = 0.771
+offset_right = 0.040016174
+offset_bottom = 0.02999878
+theme_override_colors/font_color = Color(0.7919991, 0.79199916, 0.7919991, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ktc4i")
+theme_override_font_sizes/font_size = 12
+text = "Quit Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="MainMenuButton" to="." method="MainMenu"]
+[connection signal="pressed" from="ExitButton" to="." method="Exit"]
