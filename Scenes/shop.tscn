@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://so45cpbd24al"]
+
+[ext_resource type="Script" uid="uid://cpow7d6x4nu6t" path="res://Scripts/Shop.cs" id="1_2shtd"]
+[ext_resource type="Texture2D" uid="uid://dehqs3pkuuxim" path="res://Sprites/SpaceStore.png" id="1_a0mxf"]
+[ext_resource type="PackedScene" uid="uid://hpd565byfhst" path="res://Scenes/BuffIcon.tscn" id="2_io27d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2shtd"]
+atlas = ExtResource("1_a0mxf")
+region = Rect2(0, 0, 120, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_io27d"]
+atlas = ExtResource("1_a0mxf")
+region = Rect2(120, 0, 120, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdj0q"]
+atlas = ExtResource("1_a0mxf")
+region = Rect2(240, 0, 120, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6jq0"]
+atlas = ExtResource("1_a0mxf")
+region = Rect2(360, 0, 120, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ps1r"]
+atlas = ExtResource("1_a0mxf")
+region = Rect2(480, 0, 120, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymrm4"]
+atlas = ExtResource("1_a0mxf")
+region = Rect2(600, 0, 120, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8dlv"]
+atlas = ExtResource("1_a0mxf")
+region = Rect2(720, 0, 120, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tyrku"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2shtd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_io27d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdj0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6jq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ps1r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymrm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8dlv")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 15.0
+}]
+
+[node name="Shop" type="Control" unique_id=739733693 node_paths=PackedStringArray("ShopSprite", "ShopItemContainer")]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_2shtd")
+ShopSprite = NodePath("MarginContainer/ShopSprite")
+ShopItemContainer = NodePath("ShopItemContainer")
+ShopItem = ExtResource("2_io27d")
+
+[node name="ShopItemContainer" type="GridContainer" parent="." unique_id=1455988210]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.503
+anchor_right = 0.5
+anchor_bottom = 0.503
+offset_left = -188.0
+offset_top = -54.08
+offset_right = 195.0
+offset_bottom = 81.92
+mouse_filter = 2
+columns = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=29984230]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.078
+anchor_top = 0.125
+anchor_right = 0.92200005
+anchor_bottom = 0.87500006
+offset_left = 250.08
+offset_top = 115.0
+offset_right = -250.08002
+offset_bottom = -115.00003
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 270
+theme_override_constants/margin_top = 135
+theme_override_constants/margin_right = 270
+theme_override_constants/margin_bottom = 135
+
+[node name="ShopSprite" type="AnimatedSprite2D" parent="MarginContainer" unique_id=337980554]
+texture_filter = 1
+scale = Vector2(4.5, 4.5)
+sprite_frames = SubResource("SpriteFrames_tyrku")
+animation = &"Open"
+frame = 6
+frame_progress = 1.0
+centered = false
+
+[connection signal="visibility_changed" from="." to="." method="OnVisibilityChanged"]
+[connection signal="animation_finished" from="MarginContainer/ShopSprite" to="." method="OnOpenAnimationFinish"]

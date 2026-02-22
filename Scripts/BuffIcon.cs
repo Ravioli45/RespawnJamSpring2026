@@ -5,6 +5,9 @@ using System;
 
 public partial class BuffIcon : Control
 {
+    [Signal]
+    public delegate void BuffIconClickedEventHandler();
+
     [Export]
     TextureRect Icon;
 
@@ -27,9 +30,11 @@ public partial class BuffIcon : Control
 
     public void OnButtonPressed(InputEvent @event)
     {
-        if (@event.IsActionPressed("shoot")) {
+        if (@event.IsActionPressed("shoot"))
+        {
             //GD.Print($"{BuffName.Text} Selected");
             GameMaster.Instance.CurrentBuffs += cardBuff.StatChanges;
+            EmitSignalBuffIconClicked();
         }
     }
 }
