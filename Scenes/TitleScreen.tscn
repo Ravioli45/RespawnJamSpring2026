@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bughtjeoxkoyo" path="res://Sprites/Title Screen/ButtonHovered.png" id="4_emot1"]
 [ext_resource type="Texture2D" uid="uid://d0vydf16e5r3d" path="res://Sprites/Title Screen/Title_Screen.png" id="5_emot1"]
 
+[sub_resource type="SystemFont" id="SystemFont_i5sur"]
+font_names = PackedStringArray("Comic Sans MS")
+
 [node name="Control" type="Control" unique_id=1255058673 node_paths=PackedStringArray("StartButton", "HelpButton", "ExitButton", "BackButton", "Logo", "HelpDescription")]
 layout_mode = 3
 anchors_preset = 15
@@ -200,17 +203,17 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.01875
 anchor_top = 0.13055556
-anchor_right = 0.69525003
-anchor_bottom = 0.8857778
-offset_right = 0.039978027
-offset_bottom = 0.11999512
+anchor_right = 0.69500005
+anchor_bottom = 0.92800003
+offset_right = 0.19995117
+offset_bottom = -15.080017
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_uebgo")
-theme_override_font_sizes/font_size = 10
+theme_override_fonts/font = SubResource("SystemFont_i5sur")
+theme_override_font_sizes/font_size = 18
 text = "Hey Space Recruits! 
 Before you start Blasting Bots, let's get you caught up with the basics!
 [Controls]
-It'll be a true bot bath out there, but our eagle in the sky will keep you supplied. In between waves, we will beam you up for upgrades and potentially give you bonuses based off of your performance 
+It'll be a true bot bath out there, but our eagle in the sky will keep you supplied. In between waves, we will beam you up for upgrades and potentially give you bonuses based off of your performance.
 
 Go Gettem Soldier!"
 autowrap_mode = 2
