@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dby18pdtkqdb0" path="res://Scripts/TitleScreen.cs" id="1_emot1"]
 [ext_resource type="FontFile" uid="uid://cmtomj4tifwic" path="res://Sprites/Title Screen/Kabisat Demo-ItalicTall.ttf" id="1_uebgo"]
-[ext_resource type="Texture2D" uid="uid://ce1cqkhh1us6a" path="res://Sprites/Title Screen/PlaceholderBackground.png" id="1_vmg2h"]
+[ext_resource type="VideoStream" uid="uid://bnpwaot8dgnoe" path="res://Sprites/Title Screen/System-Overload-vid-low-qual.ogv" id="2_7whhf"]
 [ext_resource type="Texture2D" uid="uid://cyq77xruljmdp" path="res://Sprites/Title Screen/ButtonNOTHovered.png" id="3_n15yj"]
 [ext_resource type="Texture2D" uid="uid://bughtjeoxkoyo" path="res://Sprites/Title Screen/ButtonHovered.png" id="4_emot1"]
 [ext_resource type="Texture2D" uid="uid://d0vydf16e5r3d" path="res://Sprites/Title Screen/Title_Screen.png" id="5_emot1"]
@@ -25,31 +25,21 @@ BackButton = NodePath("BackButton")
 Logo = NodePath("Title")
 HelpDescription = NodePath("HelpDescription")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1753776137]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=990109067]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.79375
-anchor_top = -0.225
-anchor_right = 2.0808551
-anchor_bottom = 2.6142223
-offset_right = -591.68005
-offset_bottom = -317.12
-texture = ExtResource("1_vmg2h")
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="TextureRect" unique_id=984425175]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.425
-anchor_top = 0.36200002
-anchor_right = 0.63090146
-anchor_bottom = 0.43146104
-offset_left = -0.42858887
-offset_top = -0.21000671
-offset_right = 0.5925293
-offset_bottom = -0.1800232
-text = "This is a placeholder background,
-will fill with a demo video later"
+anchor_top = -0.72266674
+anchor_right = 1.64525
+anchor_bottom = 1.7163334
+offset_top = 0.16001892
+offset_right = -0.07110596
+offset_bottom = 0.1199646
+stream = ExtResource("2_7whhf")
+volume_db = -80.0
+autoplay = true
+expand = true
+loop = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Title" type="TextureRect" parent="." unique_id=778726410]
