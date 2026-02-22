@@ -14,6 +14,7 @@ public partial class Epilepsy_Screen : Control
         await ToSignal(GetTree().CreateTimer(1), "timeout");
         InputLock = false;
         await ToSignal(GetTree().CreateTimer(6), "timeout");
+        InputLock = true;
         Transition.Instance.TransitionBetweenScenes();
         await ToSignal(GetTree().CreateTimer(1), "timeout");
 
