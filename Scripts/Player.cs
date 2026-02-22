@@ -12,7 +12,10 @@ public partial class Player : CharacterBody2D
 
     public PlayerState State { get; private set; } = PlayerState.IDLE;
     private bool canShoot = true;
+    private bool invincible = false;
 
+    [Export]
+    private int Health;
     [Export]
     private float baseSpeed;
     [Export]
@@ -26,6 +29,10 @@ public partial class Player : CharacterBody2D
 
     [Export]
     private Timer FirerateTimer;
+    [Export]
+    private Timer InvincibilityTimer;
+    [Export]
+    private Timer InvincibilityFlashTimer;
 
     public override void _Ready()
     {
@@ -87,9 +94,31 @@ public partial class Player : CharacterBody2D
         MoveAndSlide();
     }
 
+    public void TakeHit()
+    {
+        if (!invincible)
+        {
+            Health -= 1;
+            invincible = true;
+            InvincibilityTimer.Start();
+            InvincibilityFlashTimer.Start();
+        }
+    }
+
     public void OnFirerateTimerEnd()
     {
         canShoot = true;
+    }
+
+    public void OnInvincibilityEnd()
+    {
+        InvincibilityFlashTimer.Stop();
+        Visible = true;
+        invincible = false;
+    }
+    public void OnInvincibilityFlashEnd()
+    {
+        Visible = !Visible;
     }
 
     public bool IsIdle()
