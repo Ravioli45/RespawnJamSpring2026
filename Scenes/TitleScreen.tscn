@@ -1,0 +1,222 @@
+[gd_scene format=3 uid="uid://d1hhme22ajkdu"]
+
+[ext_resource type="Script" uid="uid://dby18pdtkqdb0" path="res://Scripts/TitleScreen.cs" id="1_emot1"]
+[ext_resource type="FontFile" uid="uid://cmtomj4tifwic" path="res://Sprites/Title Screen/Kabisat Demo-ItalicTall.ttf" id="1_uebgo"]
+[ext_resource type="Texture2D" uid="uid://ce1cqkhh1us6a" path="res://Sprites/Title Screen/PlaceholderBackground.png" id="1_vmg2h"]
+[ext_resource type="Texture2D" uid="uid://cyq77xruljmdp" path="res://Sprites/Title Screen/ButtonNOTHovered.png" id="3_n15yj"]
+[ext_resource type="Texture2D" uid="uid://bughtjeoxkoyo" path="res://Sprites/Title Screen/ButtonHovered.png" id="4_emot1"]
+[ext_resource type="Texture2D" uid="uid://d0vydf16e5r3d" path="res://Sprites/Title Screen/Title_Screen.png" id="5_emot1"]
+
+[node name="Control" type="Control" unique_id=1255058673 node_paths=PackedStringArray("StartButton", "HelpButton", "ExitButton", "BackButton", "Logo", "HelpDescription")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_emot1")
+StartButton = NodePath("StartButton")
+HelpButton = NodePath("HelpButton")
+ExitButton = NodePath("ExitButton")
+BackButton = NodePath("BackButton")
+Logo = NodePath("Title")
+HelpDescription = NodePath("HelpDescription")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1753776137]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.79375
+anchor_top = -0.225
+anchor_right = 2.0808551
+anchor_bottom = 2.6142223
+offset_right = -591.68005
+offset_bottom = -317.12
+texture = ExtResource("1_vmg2h")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=984425175]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.425
+anchor_top = 0.36200002
+anchor_right = 0.63090146
+anchor_bottom = 0.43146104
+offset_left = -0.42858887
+offset_top = -0.21000671
+offset_right = 0.5925293
+offset_bottom = -0.1800232
+text = "This is a placeholder background,
+will fill with a demo video later"
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="TextureRect" parent="." unique_id=778726410]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0484375
+anchor_top = 0.06111111
+anchor_right = 0.7968979
+anchor_bottom = 0.22755559
+offset_right = 0.23999023
+offset_bottom = 0.07998657
+texture = ExtResource("5_emot1")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="StartButton" type="TextureButton" parent="." unique_id=344880000]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7078125
+anchor_top = 0.33333334
+anchor_right = 0.9265625
+anchor_bottom = 0.5273333
+offset_bottom = 0.1599989
+texture_normal = ExtResource("3_n15yj")
+texture_hover = ExtResource("4_emot1")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="StartButton" unique_id=552473261]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.20714286
+anchor_top = 0.25714287
+anchor_right = 0.786
+anchor_bottom = 0.75757146
+offset_right = -0.040000916
+offset_bottom = -0.030002594
+theme_override_colors/font_color = Color(0.7919991, 0.79199916, 0.7919991, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_uebgo")
+theme_override_font_sizes/font_size = 12
+text = "Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HelpButton" type="TextureButton" parent="." unique_id=1848930095]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7078125
+anchor_top = 0.5277778
+anchor_right = 0.9265625
+anchor_bottom = 0.7217778
+offset_bottom = 0.1599989
+texture_normal = ExtResource("3_n15yj")
+texture_hover = ExtResource("4_emot1")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="HelpButton" unique_id=237737109]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.20714286
+anchor_top = 0.25714287
+anchor_right = 0.786
+anchor_bottom = 0.75757146
+offset_right = -0.040000916
+offset_bottom = -0.030002594
+theme_override_colors/font_color = Color(0.7919991, 0.79199916, 0.7919991, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_uebgo")
+theme_override_font_sizes/font_size = 12
+text = "Help"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ExitButton" type="TextureButton" parent="." unique_id=975618848]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7078125
+anchor_top = 0.7222222
+anchor_right = 0.9265625
+anchor_bottom = 0.9162222
+offset_bottom = 0.16000366
+texture_normal = ExtResource("3_n15yj")
+texture_hover = ExtResource("4_emot1")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ExitButton" unique_id=1796822019]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.20714286
+anchor_top = 0.27142859
+anchor_right = 0.786
+anchor_bottom = 0.7718572
+offset_right = -0.040000916
+offset_bottom = -0.030002594
+theme_override_colors/font_color = Color(0.7919991, 0.79199916, 0.7919991, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_uebgo")
+theme_override_font_sizes/font_size = 12
+text = "Exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BackButton" type="TextureButton" parent="." unique_id=69880661]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.708
+anchor_top = 0.72200006
+anchor_right = 0.92700005
+anchor_bottom = 0.91700006
+offset_left = -0.11999512
+offset_top = 0.07998657
+offset_right = -0.2800293
+offset_bottom = -0.120025635
+texture_normal = ExtResource("3_n15yj")
+texture_hover = ExtResource("4_emot1")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="BackButton" unique_id=319420148]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.20714286
+anchor_top = 0.27142859
+anchor_right = 0.786
+anchor_bottom = 0.7718572
+offset_right = -0.040000916
+offset_bottom = -0.030002594
+theme_override_colors/font_color = Color(0.7919991, 0.79199916, 0.7919991, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_uebgo")
+theme_override_font_sizes/font_size = 12
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HelpDescription" type="Label" parent="." unique_id=915108284]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01875
+anchor_top = 0.13055556
+anchor_right = 0.69525003
+anchor_bottom = 0.8857778
+offset_right = 0.039978027
+offset_bottom = 0.11999512
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_uebgo")
+theme_override_font_sizes/font_size = 10
+text = "Hey Space Recruits! 
+Before you start Blasting Bots, let's get you caught up with the basics!
+[Controls]
+It'll be a true bot bath out there, but our eagle in the sky will keep you supplied. In between waves, we will beam you up for upgrades and potentially give you bonuses based off of your performance 
+
+Go Gettem Soldier!"
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="StartButton" to="." method="Start"]
+[connection signal="pressed" from="HelpButton" to="." method="Help"]
+[connection signal="pressed" from="ExitButton" to="." method="Exit"]
+[connection signal="pressed" from="BackButton" to="." method="Back"]

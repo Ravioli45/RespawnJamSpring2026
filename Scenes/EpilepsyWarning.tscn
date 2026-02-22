@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://b7ymr0lsj5gk3"]
+
+[ext_resource type="Script" uid="uid://d0t782be6fh26" path="res://Scripts/Epilepsy_Screen.cs" id="1_wab14"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y32uw"]
+blend_mode = 2
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2l367"]
+
+[node name="Control" type="Control" unique_id=1031911993 node_paths=PackedStringArray("Fade")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wab14")
+Fade = NodePath("")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1856780930]
+material = SubResource("CanvasItemMaterial_y32uw")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_2l367")
+
+[node name="Label" type="Label" parent="." unique_id=1434165171]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3328125
+anchor_top = 0.21666667
+anchor_right = 0.6346251
+anchor_bottom = 0.34977782
+offset_right = -0.16003418
+offset_bottom = 0.07998657
+theme_override_colors/font_color = Color(0.8930879, 0, 0.17582902, 1)
+theme_override_font_sizes/font_size = 31
+text = "WARNING"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Label" unique_id=273842663]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.43523315
+anchor_top = 1.6458334
+anchor_right = 1.4251194
+anchor_bottom = 4.6043334
+offset_right = -0.048034668
+offset_bottom = -0.008010864
+theme_override_font_sizes/font_size = 26
+text = "This videogame may not be suitable for people with photosensitivity"
+horizontal_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
