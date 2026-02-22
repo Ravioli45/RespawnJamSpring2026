@@ -1,16 +1,39 @@
-[gd_scene format=3 uid="uid://b0r7ihrgbkb6s"]
+[gd_scene format=3 uid="uid://damh8komwfas"]
 
 [ext_resource type="PackedScene" uid="uid://bg47usqr7is0n" path="res://Scenes/big_tile_manager.tscn" id="1_k5f4k"]
+[ext_resource type="Script" uid="uid://kkbfx73whw7e" path="res://Scenes/Level.cs" id="1_wqkje"]
 [ext_resource type="PackedScene" uid="uid://dkq72cf1qc44c" path="res://Scenes/player.tscn" id="2_6phgx"]
 [ext_resource type="PackedScene" uid="uid://dnmu7jq27mqst" path="res://Scenes/follow_camera.tscn" id="4_81xng"]
+[ext_resource type="PackedScene" uid="uid://uncxp0fy4ivl" path="res://Scenes/SmallMelee.tscn" id="4_wqkje"]
+[ext_resource type="PackedScene" uid="uid://cwwm1vkdl71sx" path="res://Scenes/BigMelee.tscn" id="5_wqkje"]
+[ext_resource type="PackedScene" uid="uid://do6f52himnsjl" path="res://Scenes/SmallFlying.tscn" id="6_0f350"]
+[ext_resource type="PackedScene" uid="uid://c543je4f061an" path="res://Scenes/BigFlying.tscn" id="7_8c0lf"]
 
-[node name="GameMaster" type="Node2D" unique_id=197642299]
+[node name="GameMaster" type="Node2D" unique_id=197642299 node_paths=PackedStringArray("Spawnlocation", "player")]
+script = ExtResource("1_wqkje")
+SmallMelee = ExtResource("4_wqkje")
+LargeMelee = ExtResource("5_wqkje")
+SmallFlying = ExtResource("6_0f350")
+LargeFlying = ExtResource("7_8c0lf")
+Spawnlocation = NodePath("Player/Enemy Spawner")
+player = NodePath("Player")
+EnemiesList = Array[PackedScene]([ExtResource("4_wqkje")])
 
 [node name="BigTileManager" parent="." unique_id=1940092986 instance=ExtResource("1_k5f4k")]
 
 [node name="Player" parent="." unique_id=354397576 instance=ExtResource("2_6phgx")]
-position = Vector2(39, 33)
+position = Vector2(395, 127)
+Health = 0
+
+[node name="Enemy Spawner" type="Node2D" parent="Player" unique_id=1024827697]
 
 [node name="FollowCamera" parent="." unique_id=1389545954 node_paths=PackedStringArray("Target") instance=ExtResource("4_81xng")]
 Target = NodePath("../Player")
 Following = true
+
+[node name="WaveTimer" type="Timer" parent="." unique_id=1083659638]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="WaveTimer" to="." method="OnWaveTimerTimeout"]
